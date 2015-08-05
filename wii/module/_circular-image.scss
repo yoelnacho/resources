@@ -1,0 +1,82 @@
+// *************************************
+//
+//   Circular image
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-circularImage {
+    @include v-align;
+}
+
+.m-circularImage-img {
+    @extend %text-center;   
+
+    width: torem($user-avatar-radius); 
+
+    > figure {
+        @include border-radius(9999px);
+        @extend %full-width;
+        @extend %no-overflow;
+        
+        height: torem($user-avatar-radius);
+        width: torem($user-avatar-radius);
+
+        &.no-image {
+            border: 1px $color-secondary dashed;
+            background-color: $color-quinary;
+        }
+
+        &[class*="icon-"]{
+            border-color: $color-secondary;
+            border-style: solid;
+            border-width: 1px;
+            font-size: torem(32px);
+            line-height: torem($user-avatar-radius);
+        }         
+    }
+
+    img {
+        @extend %full-width;
+        // max-width: 100%; partial comment
+        height: 100%; // partial line
+    }
+}
+
+.m-circularImage-content { 
+    padding-left: $space-small;
+
+    @include break-point($bp-tablet) {
+        padding-left: 0;
+    }
+}
+
+.m-circularImage-content,
+.input-row--circularImage { 
+
+    .input-content {
+        padding-bottom: $height-label;
+    }
+
+    label { padding-top: 10px;}
+    
+    @include break-point($bp-tablet) {
+        .input-content {
+            padding-bottom: $space-medium;
+
+            .input-content {
+                padding-bottom: 0;
+            }
+        }
+
+        label { padding-top: 0;}
+    }
+}

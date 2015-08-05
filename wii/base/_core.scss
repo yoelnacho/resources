@@ -1,0 +1,96 @@
+// *************************************
+//
+//   Base
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+*,*:before,*:after {
+	@include box-sizing(border-box);
+}
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+a,
+a:active,
+a:focus,
+button {
+    outline: none;
+}
+
+menu {
+    margin: 0; 
+    padding: 0;
+}
+
+
+a {
+    color: $color-blue-light;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+    	text-decoration: underline;
+    }
+
+    &.btn,
+    &.m-social-link,
+    &.icon-circle_remove,
+    &.alertbox-icon--close,
+    &.wi-icon {
+    	&:hover {
+    	    text-decoration: none;
+    	}
+    }
+}
+
+figcaption {
+    bottom: 0;
+    color: $color-font-primary;
+    font: {
+        size: torem(12px);
+        weight: 700;
+    }
+    padding: $space-small; 
+    position: absolute;
+
+
+    > span {
+        font-size: torem(16px);
+    }
+} 
+
+img {
+    @extend %show;
+
+    max-width: 100%;
+}
+
+select {
+    @extend %without-appearance;
+    
+    background: {
+        color: transparent;
+        image: url("https://resources.wiibii.com/dev/images/dev/arrowDown-gray.svg");
+        repeat: no-repeat;
+        size: 11px;
+    }
+}
+
+option {
+    background-color: $color-senary;
+    color: $color-font-secondary;
+    line-height: 1.5;
+}

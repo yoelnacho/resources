@@ -1,0 +1,35 @@
+// *************************************
+//
+//   Errors
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.p-commons {
+    .thematic-break {
+        @include center(torem(150px));
+        
+        border-bottom: 1px solid $color-quaternary;
+        margin-bottom: $space-medium;
+        padding-top: $space-small;
+    }   
+}
+
+.p-commons-message {
+    @extend %headline-1;
+    
+    font-weight: 400;
+    line-height: 1.5;
+    
+    @include break-point($bp-mobile) {
+        line-height: 1;
+    }
+}

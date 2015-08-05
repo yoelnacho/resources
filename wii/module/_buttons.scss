@@ -1,0 +1,262 @@
+// *************************************
+//
+//   Buttons
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$size-on-off: 32px;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+%btns {  
+    @include transition(background, $animation-time, ease);
+    @extend %text-center;
+
+    border: {
+        color: transparent;
+        style: solid;
+        width: 1px;
+    }
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 400;    
+    margin: 0 auto;
+    padding: 0;
+    -webkit-appearance: none;
+
+    &:hover {
+        text-decoration: none; 
+    }
+
+    &[disabled="disabled"]{
+        opacity: .3;
+    }
+}
+
+// STYLES
+form [data-wii-btn~="large"] { line-height: 1;}
+
+[data-wii-btn] {
+    @extend %btns;
+}
+
+[data-wii-btn~="block"] {
+    @extend %block-align-center;
+    @extend %full-width;
+
+    &[data-wii-btn~="small"] {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+[data-wii-btn~="small"] {
+    @extend %paragraphs-small;
+
+    height: torem($space-medium); 
+    line-height: torem($space-medium - 2); // border 2px
+    padding-left: $space-medium;
+    padding-right: $space-medium;
+}
+
+[data-wii-btn~="large"] {
+    @extend %headline-5;
+
+    height: torem($space-large); 
+    line-height: torem($space-large - 2); // border 2px
+    padding-left: $space-large;
+    padding-right: $space-large;
+
+    @include break-point($bp-tablet) {
+        padding-left: $space-small;
+        padding-right: $space-small;
+    }
+}
+
+[data-wii-btn~="default"] {
+    background-color: transparent;
+    border-color: $color-secondary;
+    color: $color-font-secondary;
+
+    &:hover {
+        background-color: rgba($color-secondary, .2);
+        color: $color-font-secondary;
+    }
+    &[disabled="disabled"]:hover {
+        background-color: transparent;
+        border-color: $color-secondary;
+        color: $color-font-secondary;
+    }
+}
+
+[data-wii-btn~="default--inv"] {
+    background-color: transparent;
+    border-color: $color-primary;
+    color: $color-font-primary;
+
+    &:hover {
+        background-color: rgba($color-primary, .2);
+        color: $color-font-primary;
+    }
+}
+
+[data-wii-btn~="primary"] {
+    background-color: $color-secondary;
+    color: $color-font-primary;
+
+    &:hover {
+        background-color: rgba($color-secondary, .8);
+        border-color: $color-secondary;
+        color: $color-font-primary;
+    }
+    &[disabled="disabled"]:hover {
+        background-color: $color-secondary;
+        color: $color-font-primary;
+    }
+}
+
+[data-wii-btn~="primary--inv"] {
+    background-color: $color-primary;
+    color: $color-font-secondary;
+
+    &:hover {
+        background-color: $color-secondary;
+        border-color: $color-primary;
+        color: $color-font-primary;
+    }
+}
+
+
+// BTN CIRCLE
+[data-wii-btn~="circle"] {
+    @include border-radius(50%);
+    @extend %headline-5;
+
+    border: {
+        style: solid;
+        width: 1px;
+    }
+    height: $btn-icon;
+    padding: 0;
+    width: $btn-icon;
+    
+    > span {
+        line-height: $btn-icon - 2;
+    }
+    
+    &[data-wii-btn~="nav"] {
+        margin: 10px;
+        vertical-align: top;
+    }
+
+    &[data-wii-btn~="small"] {
+        font-size: torem(17px);
+        height: $btn-icon-small;
+        width: $btn-icon-small;
+        
+        > span {
+            line-height: $btn-icon-small - 2;
+            vertical-align: top;
+        }
+    }
+
+    &[data-wii-btn~="primary"] {
+        &:hover {
+            background-color: transparent;
+            border-color: $color-secondary;
+            color: $color-font-secondary;
+        }
+
+        &[disabled="disabled"]:hover {
+            background-color: $color-secondary;
+            color: $color-font-primary;
+        }
+    }
+
+    &[data-wii-btn~="primary--inv"] {
+        border-color: $color-secondary;
+    }
+
+    &[data-wii-btn~="secondary"] {
+        background-color: transparent;
+        border-color: $color-secondary;
+        color: $color-font-secondary;            
+
+        &:hover {      
+            background-color: $color-secondary;          
+            color: $color-font-primary;
+        }
+
+        &[disabled="disabled"]:hover {
+            background-color: transparent;
+            border-color: $color-secondary;
+            color: $color-font-secondary;
+        }
+    }
+}
+
+// GROUPS
+[data-wii-grp~="160"] {
+    [data-wii-btn] {
+        padding: 0;
+        width: 160px; 
+    }
+}
+
+[data-wii-grp~="right"] {
+    @extend %text-right;
+
+    [data-wii-btn] {
+        margin-left: $space-small;
+        
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+[data-wii-grp~="half"] {
+    @include break-point($bp-mobile) {
+        [data-wii-btn] {
+            float: left;
+            margin-left: 6%;
+            width: 47%;
+        }
+    }
+}
+
+.btn-on, 
+.btn-off {
+    width: $size-on-off;
+
+    button {
+        @include border-radius(50%);
+        @extend %paragraphs-small;
+
+        border: 1px solid $color-secondary;
+        color: $color-font-secondary;
+        height: $size-on-off;            
+        text-align: center;
+        padding: 0;
+        width: $size-on-off;
+    }
+    
+}
+.btn-on {
+    button { 
+        background-color: transparent;
+        &:hover { background-color: $color-quaternary;}
+    }
+}
+.btn-off {
+    button { 
+        background-color: $color-quaternary;
+        &:hover { background-color: $color-tertiary;}
+    }
+}

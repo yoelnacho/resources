@@ -1,0 +1,107 @@
+// *************************************
+//
+//   Benefits
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$benefits-icon-radius: torem(150px);
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-benefits {
+    @extend %clearfix;
+
+    margin-top: $space-small;
+}
+
+.m-benefits-block {
+    @include column(1/2, $cycle:2, $gutter:2); 
+
+    padding: 0 torem($space-small + 5); 
+    margin-bottom: torem($space-medium + 10);
+
+    > h3 { 
+        @extend %paragraphs;
+        
+        font-weight: 700;
+        margin-bottom: torem($space-small / 2);
+    }
+
+    > h3 ~ p  {
+        @extend %paragraphs-small;
+
+        line-height: 150%; 
+        margin: 0;
+        padding-left: 170px;
+        text-align: justify; 
+    }
+
+    @include break-point($bp-tablet) {        
+        @include column(1/1, $cycle:2, $gutter:0);
+
+        margin-bottom: torem($space-small);
+        text-align: center;
+        padding: 0 0;
+        
+        .m-benefits-icon {
+            float: none;
+            margin: 0 auto;
+        }
+
+        > h3 ~ p  {
+            padding-left: 0;
+            margin: 0 auto;
+            max-width: torem(500px);
+        }
+    }
+}
+
+.m-benefits-icon {
+    @include border-radius(9999px);
+    @extend %text-center;
+    @extend %pull-left; 
+
+    border-color: $color-secondary;
+    border-style: solid;
+    border-width: 1px;
+    font-size: torem(54px);
+    line-height: $benefits-icon-radius;
+    margin-right: $space-small;
+    width: $benefits-icon-radius;
+}
+
+
+// landing page
+.m-benefits--third {
+    @extend %text-center;
+
+    margin-top: 0;
+
+    .m-benefits-block {
+        @include column(1/3, $cycle:3, $gutter:2); 
+
+        margin-bottom: 0;
+        padding: 0 10px;
+        
+        > h3 ~ p  {
+            padding-left: 0;
+        }
+
+        @include break-point($bp-tablet) {
+            @include column(1/1, $cycle:2, $gutter:0);
+
+            margin-bottom: torem($space-small); 
+        }
+    }
+
+    .m-benefits-icon {
+        float: none;        
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,234 @@
+// *************************************
+//
+//   Content Lists
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-lists {
+    padding-bottom: torem($space-small);
+
+    h2 {
+        @extend %paragraphs;
+
+        color: $color-white;
+        font-weight: 700;
+        line-height: $space-large;
+        margin-top: 0;
+        padding-left: torem(20px);
+    }
+
+    @include break-point($bp-tablet) {
+        padding-bottom: 0;
+    }
+}
+
+
+.m-cards {
+    @include cf;
+
+    margin-bottom: $space-small;
+
+    .m-cards-row {
+        @include cf;
+        margin-bottom: 15px;
+
+        label {
+            @extend %pull-right;
+
+            @include break-point($bp-tablet) {
+                float: none;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Mobile
+    @include break-point($bp-tablet) {
+        margin-bottom: 0;
+    }
+}
+
+// Header
+[data-wii-nav~="card-header"] {
+    @extend %no-overflow;
+
+    cursor: pointer;
+    position: relative;
+
+    .nav-link-language {
+        padding: 10px;
+        vertical-align: top;
+
+        span {
+            &.lg-cn {
+                background-position: 0 0;
+            }
+            &.lg-es {
+                background-position: 0 -40px;
+            }
+            &.lg-fr {
+                background-position: 0 -80px;
+            }
+            &.lg-it {
+                background-position: 0 -120px;
+            }
+            &.lg-us {
+                background-position: 0 -160px;
+            }
+        }
+        
+        &:after {
+            border: none;
+        }
+    }
+
+   .nav-content {
+        padding-left: 0;
+        padding-right: 0;
+
+        > * {
+            @extend %paragraphs;
+
+            display: inline-block;
+            font-weight: 400;
+            line-height: $space-large;
+            margin: 0;
+        }
+
+        h4 {
+            left: 0;
+            padding-left: $space-small;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    ul {
+        display: inline-block;
+        position: inherit;
+    }
+
+    .m-cards-locked {
+        opacity: .3;
+
+        &:hover {
+            background-color: transparent;
+            cursor: default;
+        }
+    }
+
+    @include break-point($bp-tablet) {
+        border-bottom: 1px solid $color-white;
+    }
+
+    // Mobile
+    .is--responsive {
+        @extend %no-overflow;
+        @extend %full-width;
+
+        height: $height-menu - 1;
+
+        .m-cards-menu {
+            @include transform( translate3d(0, 0, 0));
+            @extend %full-width;
+
+            opacity: 1;
+        }
+    }
+}
+
+.m-cards-menu {
+    @include transition-duration($animation-time);
+    @include transition-property(all);
+    @extend %no-overflow;
+
+    @include break-point($bp-tablet) {
+        @include transform( translate3d(100%, 0, 0));
+
+        background-color: $color-quaternary;
+        position: absolute;
+        right: $space-large;
+        opacity: 0;
+        width: 0;
+    }
+}
+
+.m-cards-menu-action {
+    position: relative;
+    z-index: 1;
+}
+
+
+// Body
+.m-cards-body {
+    @extend %full-width;
+    
+    background-color: $color-white;
+    display: none;
+    color: $color-secondary;
+    font-size: torem(14px);
+    max-height: 260px;
+    padding: torem(20px);
+
+    &.m-cards-body--active {
+        display: block;
+    }
+
+    .m-cards-content-complete {
+        @include break-point($bp-tablet) {
+            margin-top: 5px;
+        }
+    }
+
+    .m-cards-content {
+        max-height: torem(230px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        overflow: auto;
+
+        a {
+            &:hover {
+                background-color: $color-white;
+                text-decoration: underline;
+            }
+        }
+
+        p, span, small, strong, b {
+            color: $color-secondary !important;
+        }
+
+        @include break-point($bp-tablet) {
+            max-height: 100%;
+        }
+    }
+
+    p {
+        line-height: 1.5;
+        margin: 0;
+        margin-top: -3px;
+        word-break: break-all;
+    }
+
+    .m-circularImage-img {
+        @extend %pull-left;
+
+        margin-bottom: $space-small;
+    }
+
+    @include break-point($bp-tablet) {
+        max-height: 100%;
+    }
+}

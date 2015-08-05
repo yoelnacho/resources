@@ -1,0 +1,233 @@
+// *************************************
+//
+//   Look & Feel
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$lookAndFeel-theme-width: 120px;
+
+$lookAndFeel-colors-default-v1: $color-secondary;
+$lookAndFeel-colors-default-v2: $color-tertiary;
+$lookAndFeel-colors-default-v3: $color-quaternary;
+$lookAndFeel-colors-default-v4: $color-quinary;
+$lookAndFeel-colors-default-v5: $color-primary;
+
+$lookAndFeel-colors-v2: #F44336;
+$lookAndFeel-colors-v3: #FF5722;
+$lookAndFeel-colors-v4: #FF9800;
+$lookAndFeel-colors-v5: #8BC34A;
+$lookAndFeel-colors-v6: #8BC34A;
+$lookAndFeel-colors-v7: #00BCD4;
+$lookAndFeel-colors-v8: #42A5F5;
+$lookAndFeel-colors-v9: #4266F5;
+$lookAndFeel-colors-v10: #32288F;
+$lookAndFeel-colors-v11: #77288F;
+$lookAndFeel-colors-v12: #D63678;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-lookAndFeel {}
+.m-lookAndFeel-content {}
+
+.m-lookAndFeel-row {
+    @include transition(background, $animation-time);
+
+    cursor: pointer;
+    
+    &:hover,
+    &.is--active {
+        @include box-shadow($color-tertiary 0 0 0 1px);
+        
+        background-color: rgba($color-quinary, 0.5);
+    }
+}
+
+.m-lookAndFeel-item {
+    display: block;
+    margin: 5px;
+        
+    > * {
+        @extend %no-margin;
+        
+        padding: 10px;
+    }
+}
+
+.m-lookAndFeel-typo-title {
+    font: {
+        size: torem(30px);
+        weight: 700;
+    }
+
+    line-height: 1;
+}
+
+// APPEARANCE
+.m-lookAndFeel-appearance {
+    .m-lookAndFeel-row {
+        @include col(1/3);
+
+        margin-bottom: $space-small;
+
+        @include break-point($bp-desktop) {
+            @include stack();
+        }
+    }
+}
+
+.m-lookAndFeel-theme {
+    @extend %no-overflow;
+
+    > div {
+        @include span(1/2);        
+
+        height: $lookAndFeel-theme-width;        
+    }
+}
+
+.m-lookAndFeel-theme-sec {
+    > span {
+        @include span(1/2);
+
+        height: ($lookAndFeel-theme-width / 2);
+    }
+}
+
+.m-lookAndFeel-theme-v1 {
+    .m-lookAndFeel-theme-ppl {
+        background-color: $lookAndFeel-colors-default-v1;
+    }
+    .m-lookAndFeel-theme-sec-v1 {
+        background-color: $lookAndFeel-colors-default-v2;
+    }
+    .m-lookAndFeel-theme-sec-v2 {
+        background-color: $lookAndFeel-colors-default-v3;
+    }
+    .m-lookAndFeel-theme-sec-v3 {
+        background-color: $lookAndFeel-colors-default-v4;
+    }
+    .m-lookAndFeel-theme-sec-v4 {
+        background-color: $lookAndFeel-colors-default-v5;
+    }
+}
+
+.m-lookAndFeel-theme-v2 {
+    .m-lookAndFeel-theme-ppl {
+        background-color: $lookAndFeel-colors-v10;
+    }
+    .m-lookAndFeel-theme-sec-v1 {
+        background-color: $lookAndFeel-colors-v9;
+    }
+    .m-lookAndFeel-theme-sec-v2 {
+        background-color: $lookAndFeel-colors-v8;
+    }
+    .m-lookAndFeel-theme-sec-v3 {
+        background-color: $lookAndFeel-colors-v7;
+    }
+    .m-lookAndFeel-theme-sec-v4 {
+        background-color: $lookAndFeel-colors-v6;
+    }
+}
+
+.m-lookAndFeel-theme-v3 {
+    .m-lookAndFeel-theme-ppl {
+        background-color: $lookAndFeel-colors-v6;
+    }
+    .m-lookAndFeel-theme-sec-v1 {
+        background-color: $lookAndFeel-colors-v2;
+    }
+    .m-lookAndFeel-theme-sec-v2 {
+        background-color: $lookAndFeel-colors-v4;
+    }
+    .m-lookAndFeel-theme-sec-v3 {
+        background-color: $lookAndFeel-colors-v3;
+    }
+    .m-lookAndFeel-theme-sec-v4 {
+        background-color: $lookAndFeel-colors-v7;
+    }
+}
+
+
+// TYPO
+.m-lookAndFeel-typo {
+    .m-lookAndFeel-row {
+        @include col(1/2);
+
+        margin-bottom: $space-medium;
+        
+        @include break-point($bp-desktop) {
+            @include stack();
+        }
+    }
+
+}
+
+.m-lookAndFeel-typo-v1 {}
+.m-lookAndFeel-typo-v2 {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+.m-lookAndFeel-typo-v3 {
+    font-family: 'Times New Roman', Times, serif;
+}
+.m-lookAndFeel-typo-v4 {
+    font-family: 'Arial Narrow', sans-serif;
+}
+
+
+// COLORS
+.m-lookAndFeel-colors {
+    .m-lookAndFeel-row {
+        @include col(1/12, $gutter: 1);
+
+        @include break-point($bp-desktop) {
+            @include col(1/3, $cycle:3, $gutter: 1);
+        }
+    }
+
+    .m-lookAndFeel-item {
+        height: $space-large;
+    }
+}
+
+.m-lookAndFeel-colors-v1 {
+    background-color: $color-secondary;
+}
+.m-lookAndFeel-colors-v2 {
+    background-color: $lookAndFeel-colors-v2;
+}
+.m-lookAndFeel-colors-v3 {
+    background-color: $lookAndFeel-colors-v3;
+}
+.m-lookAndFeel-colors-v4 {
+    background-color: $lookAndFeel-colors-v4;
+}
+.m-lookAndFeel-colors-v5 {
+    background-color: $lookAndFeel-colors-v5;
+}
+.m-lookAndFeel-colors-v6 {
+    background-color: $lookAndFeel-colors-v6;
+}
+.m-lookAndFeel-colors-v7 {
+    background-color: $lookAndFeel-colors-v7;
+}
+.m-lookAndFeel-colors-v8 {
+    background-color: $lookAndFeel-colors-v8;
+}
+.m-lookAndFeel-colors-v9 {
+    background-color: $lookAndFeel-colors-v9;
+}
+.m-lookAndFeel-colors-v10 {
+    background-color: $lookAndFeel-colors-v10;
+}
+.m-lookAndFeel-colors-v11 {
+    background-color: $lookAndFeel-colors-v11;
+}
+.m-lookAndFeel-colors-v12 {
+    background-color: $lookAndFeel-colors-v12;
+}

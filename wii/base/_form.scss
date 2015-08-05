@@ -1,0 +1,434 @@
+// *************************************
+//
+//   Forms
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+$height-input: $height-medium;
+$height-input-big: $height-large;
+$height-label: 25px;
+
+$color-message-error: $color-red;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+ // fix ie
+input::-ms-clear,
+input::-ms-reveal { display: none; }
+// autofill Chrome
+input:-webkit-autofill, 
+textarea:-webkit-autofill, 
+select:-webkit-autofill {
+    background-color: transparent;
+    color: $color-font-secondary;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+%form-label {
+    @extend %full-width;
+
+    display: block;
+    line-height: $height-label; // 1.8
+    text-align: left;
+}
+
+form {
+    @include cf;
+
+    .input-row {
+        @include cf;
+
+        &.plus--label {
+            margin-top: $height-label;
+        }
+    }
+
+    .input-row--btn {
+        margin-top: 5px;
+    }
+
+    .input-content-group {
+        @include cf;
+    }
+
+    .input-label {
+        @extend %form-label;
+    }
+    
+    .input-content {
+        @include cf;
+
+        position: relative;
+
+        label {
+            @extend %form-label;
+        }
+
+        input,
+        select {
+            height: $height-medium;
+            line-height: normal;        
+        }
+
+        input,
+        select,
+        textarea {
+            @extend %full-width; 
+
+            padding: 5px 10px;
+            outline: 0 none;  
+
+            &:focus {
+                background-color: $color-senary;
+                border-width: 2px;
+                font-style: normal;
+            }
+
+            @extend %placeholder;  
+
+            &:disabled {
+                opacity: 0.5;
+            }
+        }
+
+        & {
+            select { 
+                background-position: 97%;
+                padding-right: $space-small;
+            }
+        }
+        &.g-half {
+            select { background-position: 94%;}
+        }
+        &.g-third {
+            select { background-position: 92%;}
+        }
+
+
+        textarea {
+            height: $height-medium + $height-large;
+            padding: 10px;
+            resize: none;
+
+            &.textarea-medium {
+                height: 145px;
+            }
+        } 
+
+        &.input--last {
+            margin-right: 0;
+        }
+    }    
+
+    .input-content-icon {
+        background: none;
+        border: 0;
+        color: $color-font-secondary;
+        height: $height-medium;
+        left: 10px;
+        position: absolute;
+        z-index: $z-low; 
+
+        > [class*="icon-"] {
+            font-size: torem(22.4px);
+            line-height: $height-medium;
+            width: 20px;
+        }
+
+        + input,
+        + select {
+            padding-left: 35px;
+        }
+
+        &.input-content-icon--right {
+            left: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            right: 0;
+            top: $height-label;
+
+            > [class*="icon-"] {
+                font-size: torem(21px);
+                line-height: normal;
+            }
+
+            &.button--icon-active {
+                background-color: $color-secondary;
+                color: $color-font-primary;                
+            }
+        }
+    }
+
+    .input-content-group-icon {
+        .input-content-icon {
+            + input,
+            + select {
+                padding-right: 40px;
+            }
+        }
+    }
+    
+    .input-content--block { @extend %full-width;}
+    .input-content--half { @include col(1/2);}
+    .input-content--one-quarter { @include col(1/3);}
+    .input-content--three-quarters { @include col(2/3);}
+
+    .input-message {   
+        @extend %text-center;
+
+        left: 0;
+        line-height: 1;
+        margin: 5px 0;     
+        position: absolute;
+        right: 0;
+    }
+
+    button.btn {
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .btn {
+        @extend %full-width;
+        @extend %inline;
+
+        padding-left: 0;
+        padding-right: 0;        
+        
+        &[disabled=disabled],
+        &:disabled {
+            cursor: default;
+            opacity: 0.3;
+            //pointer-events: none;
+        }
+    }    
+
+    .input-message--p {
+        @extend %no-margin;
+
+        font-size: torem(14px);
+        padding: 5px 0 $space-small;
+    }
+
+    .input-message--h1 {
+        @extend %no-margin;
+
+        font-size: torem(26px);
+        word-break: break-all;
+    }
+}
+
+// Defaut Theme
+%default-input {
+    background-color: $color-primary;
+    border: 1px solid $color-secondary;
+    color: $color-font-secondary;
+}
+
+.form-default {
+    .input-content {
+        padding-bottom: $space-medium;
+
+        input,
+        select,
+        textarea {
+            @include color-placeholder(rgba($color-font-secondary, .7));
+            @extend %default-input;
+            
+            &[disabled=disabled],
+            &:disabled {
+                color: $color-font-secondary;
+            }
+        }      
+    }
+
+    label.input-error { //partial
+        color: $color-message-error;
+    }
+
+    .input-row--empty {
+        * {
+            opacity: 0;
+            z-index: -1;
+        }
+        @include break-point($bp-tablet) {
+            display: none;
+        }
+    }
+
+    .input-error {
+        input,
+        select,
+        textarea {
+            background-color: $color-quinary;
+            border: 1px solid $color-message-error;  
+            color: $color-message-error;              
+        }
+
+        input.ng-invalid,
+        textarea.ng-invalid {
+            @include color-placeholder($color-message-error);        
+        }
+
+        input,
+        label,
+        select,
+        .input-content-icon,
+        .input-message { 
+            color: $color-message-error;
+        }
+
+        .input-message { 
+            @extend %paragraphs;
+            border-top: 3px solid $color-message-error;
+        }
+
+        .tooltip-hint {
+            @extend %hidden;
+        }
+    }
+
+    .input-modified {
+        input,
+        select,
+        textarea {
+            background-color: $color-green-light;
+            border: 1px solid $color-green-brigthen;  
+        }
+
+        .m-htmlEditor {
+
+            .ta-root {
+                border-color: $color-green-brigthen;    
+            }
+
+            .ta-editor {
+                background-color: $color-green-light;
+            }
+        }
+    }
+
+    .input-row--big {
+        .input-content {
+            input {
+                height: $height-large;
+            }
+        }
+        
+        .input-content-icon {
+            height: $height-large;
+
+            [class*="icon-"] {
+                font-size: toem(26px);
+                line-height: $height-large;
+                width: 30px;
+            }
+            
+            + input,
+            + select {            
+                padding-left: 45px;
+            }
+        }
+    }
+
+    .input-content--radio {
+        @include cf;
+        margin-bottom: 0;
+        padding-bottom: 0px;
+
+        &:last-child {
+           margin-bottom: $space-medium; 
+        }
+
+        input {
+            height: auto;
+        }
+
+        input[type="radio"]{
+            @extend %pull-left;
+            
+            background-color: transparent;
+            border: 0;
+            margin-right: 0;
+            margin-top: 14px;
+            padding: 0;
+            width: toem(19px);
+
+            + label {
+                line-height: $space-medium;
+                padding-left: 30px;
+            }
+        }
+    }
+
+    .input-group-repeat {
+
+        &, .input-content {
+            padding-bottom: $space-small;
+        }
+    }
+}
+
+
+// TOOLTIPS HINT
+.tooltip-hint{
+    @extend %full-width;
+    @extend %text-center;
+    @extend %paragraphs-small;
+
+    color: rgba($color-font-secondary, .8);
+    margin: 5px 0;
+    position: absolute;
+}
+
+// Pasword Strength
+.password-strength {
+    @extend %full-width;
+    @include transition(all, 0.2s, ease-in-out);
+
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 0 0 1px;
+    position: absolute;
+
+    li {
+        margin-top: 5px;
+    }
+
+    [class*="password-strength-"] {
+        @extend %pull-left;
+        @extend %text-center;
+        @extend %paragraphs-small;
+
+        width: 25%;
+
+        &:before {
+            border-top: 5px solid gray;
+            content: "";
+            display: block;
+            margin-right: 1px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .password-strength-poor.is-active:before { border-color: #FF665E;}
+    .password-strength-average.is-active:before { border-color: #FFE017;}
+    .password-strength-good.is-active:before { border-color: #6EDC6C;}
+    .password-strength-great.is-active:before { border-color: #40C353;}
+}
+
+.hidePasword { opacity: 0;}

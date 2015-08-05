@@ -1,0 +1,209 @@
+// *************************************
+//
+//   Accordion / Publish
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$border-accord: 2px;
+$mb-accord: 2px;
+$bg-accord: $color-primary;
+$bg-accord-mobile: $color-quinary;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-accord-wrapper {
+    .disabled {
+        .btn-on {
+            cursor: default;
+
+            button { 
+                cursor: default;
+
+                &:hover { background-color: $color-tertiary;}
+            }
+        }
+        .btn-off {
+            cursor: default;
+
+            button { 
+                cursor: default;
+
+                &:hover { background-color: $color-quaternary;}
+            }
+        }
+    }
+    
+    // LV-1
+    > .m-accord {
+        &:last-of-type { 
+            border-left: transparent;
+
+            @include break-point($bp-tablet) {
+                > .m-accord-content.border-bottom,
+                .m-accord-title { border-bottom: 0;}
+                
+                .border-bottom {
+                    .m-accord-title { 
+                        border-bottom-color: $color-quaternary;
+                        border-bottom-style: solid;
+                        border-bottom-width: 1px;
+                    }
+                }
+            }
+        }
+
+        // LV-2
+        > .m-accord-content > .m-accord:last-of-type { 
+            border-left: transparent;
+        }
+    }
+    
+    @include break-point($bp-tablet) {
+        background-color: $bg-accord-mobile;
+        border-bottom-color: $color-quaternary;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        padding: 0 torem($space-small);
+    }
+}
+
+.m-accord {
+    border-left: $border-accord dotted $color-secondary;
+    margin-bottom: $border-accord;
+    position: relative;
+
+    
+    .m-accord-title {
+
+        &.border-bottom {
+            border-bottom-color: $color-quaternary;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+    }
+
+    .m-accord {
+        margin-left: 5%;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+
+        .disabled {
+            opacity: 1;
+        }
+    }
+
+    &.m-accord-unique {
+        border-color: transparent;
+        
+        > .m-accord-content > .m-accord-border,
+        > .m-accord-border {
+            @extend %hidden;
+        }
+    }
+}
+
+.m-accord-border {      
+    border-bottom: $border-accord dotted $color-secondary; 
+    height: 30px;
+    left: -$border-accord;
+    position: absolute;
+    top: 0;  
+    width: $space-small/2;
+    
+    &.m-accord-border--first, 
+    &.m-accord-border--last { 
+        background-color: $bg-accord;
+
+        @include break-point($bp-tablet) {
+            background-color: $bg-accord-mobile;
+        }
+    }
+
+    &.m-accord-border--last {
+        border-bottom: none; 
+        border-top: $border-accord dotted $color-secondary; 
+        bottom: 0;
+        top: auto;
+    }
+}
+
+.m-accord-border--lasted {
+    border-left: $border-accord dotted $color-secondary;
+    left: 0;
+}
+
+.m-accord-content {    
+    margin-left: $space-small;
+    position: relative;
+
+    .m-accord-border {
+        left: -($space-small +  $border-accord);
+
+        &.m-accord-border--lasted {
+            left: -20px;
+        }
+    }
+
+    &.border-bottom {
+        border-bottom-color: $color-quaternary;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    }
+
+    &.border-top {
+        border-top-color: $color-quaternary;
+        border-top-style: solid;
+        border-top-width: 1px;
+        
+        @include break-point($bp-tablet) {
+            border-top: 1px solid $bg-accord-mobile;
+        }
+
+    }
+}
+
+.m-accord-title {
+    @include v-align();
+
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: $color-quaternary;
+    height: $space-large - $mb-accord;
+
+    > span {
+        cursor: pointer;        
+        width: 30px;
+
+        &[class^="icon-"] {
+            font-size: torem(32px);
+            height: 32px;
+            padding-right: 10px;
+        }                
+    }
+
+    h5 {
+        @extend %paragraphs-small;
+        
+        font-weight: 400;
+        margin: 0;
+        word-break: break-all;
+
+        > span {
+            @extend %no-overflow;
+            display: block;
+            max-height: 50px;
+        }
+
+        & ~ span {
+            padding-left: 10px;
+        }
+    }
+}

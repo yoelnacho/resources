@@ -1,0 +1,75 @@
+// *************************************
+//
+//   Editor IMG
+//
+// *************************************
+
+// -------------------------------------
+//
+//   Variables
+//
+// -------------------------------------
+
+.m-editorImg {
+    @extend %pos--relative;
+    
+    margin-bottom: $space-medium; // Animtaion
+
+    &:before {
+        background-color: $color-quinary;
+        bottom: 0;
+        content: "";
+        left: -20px;
+        position: absolute;
+        right: -20px;
+        top: 0;
+    }
+}
+
+.m-editorImg-content {
+    @extend %pos--relative;
+    @extend %no-overflow;
+    
+    height: auto; // Animtaion
+}
+
+.m-editorImg-editor {
+    padding: $space-medium 0;
+}
+
+// Mobile
+.is-mobile {
+    .m-editorImg {
+        bottom: 0;
+        left: 0;
+        margin-bottom: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: $z-max;
+
+        &:before {
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .nav-link:hover,
+        [data-wii-nav~="lv-2"]{
+            background-color: transparent;
+        }
+
+        .nav-link {
+            color: $color-font-primary;
+        }
+    }
+
+    .m-editorImg-content {
+        @include v-align();
+
+        height: 100%;
+        max-width: 100%;
+    }
+
+    .m-editorImg-editor {
+        padding: 0;
+    }
+}

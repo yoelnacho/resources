@@ -1,0 +1,140 @@
+@import "compass";
+@import "jeet/index";
+
+@import "base/normalize";
+
+* { 
+    @include box-sizing(border-box);
+}
+
+h1 {
+    text-align: center;
+}
+
+
+// EDIT
+/*---------------------------------------------------------*/
+@include edit; // muestra background de grilla par guía
+
+article, section {
+    margin: {
+        bottom: 20px;
+    }
+}
+
+
+// CENTER TO 500PX
+/*---------------------------------------------------------*/
+section.uno {
+    @include uncenter(); // quita el centrado en pantalla menor a 500px
+    article {
+        @include stack(); // pone una columna por row
+    }
+}
+@media (min-width: 650px) {
+    section.uno {
+        @include center(500px); // centra en 500px
+        article {
+            @include col(1/3);
+        }
+    }
+}
+
+
+// GUTTER IN COLUMN
+/*---------------------------------------------------------*/
+section.dos {
+    @include center; // centra por defecto en _setting 1410px con padding left/right 0
+    article {
+        @include col(1/2, $cycle: 2, $gutter: .5); // columna un medio, dos items por row, gutter del 0.5%
+    }
+}
+
+
+// CENTER WITH PADDING
+/*---------------------------------------------------------*/
+section.tres {
+    @include cf();
+    @include uncenter(); // quita el centrado horizontal
+    article {
+        @include col(1/2, $cycle: 2);
+    }
+}
+// UNCENTER
+/*---------------------------------------------------------*/
+@media (min-width: 650px) {
+    section.tres {
+        @include center(650px, 20px); // centra a 650px y con padding left/right a 20px
+    }
+}
+
+
+// UNCYCLE
+/*---------------------------------------------------------*/
+section.cuatro {
+    @include center(650px);
+    article {
+        @include col(1/2, $cycle: 2); // columna un medio, dos items por row, y el uncycle, remueve el ciclo anterior que era de 4 (ya que se utiliza para el mismo elemento hay que remover el ciclo anterio)        
+    }
+}
+// UNCYCLE
+/*---------------------------------------------------------*/
+@media (min-width: 650px) {
+    section.cuatro {
+        article {
+            @include col(1/4, $cycle: 4, $uncycle: 2); // columna un cuarto, cuatro items por row
+        }
+    }
+}
+
+
+// SHIFT
+/*---------------------------------------------------------*/
+section.cinco {
+    @include center;
+
+    article {
+        @include col(1/2); // defino como span para que no tenga padding
+    }
+
+    .cinco-1 {
+        @include shift(1/2, col); // invierto el orden de los elemento en el DOM este se ve segundo
+    }
+    .cinco-2 {
+        @include shift(-1/2, col); // invierto el orden de los elemento en el DOM este se ve primero
+    }
+}
+
+@media (max-width: 800px) {
+    section.cinco {
+        .cinco-1, .cinco-2 {
+            @include unshift(); // quita el orden de la grilla
+        }
+    }
+}
+
+// RATIO
+/*---------------------------------------------------------*/
+section.seis {
+    @include cf();
+
+    article {
+        @include col(1/2);
+
+        > div {
+            @include col(1/3 1/2); // indentando columnas manteniendo la proporción
+        }
+    }
+}
+
+
+// OFFSET link http://bit.ly/1EB8Qdl
+/*---------------------------------------------------------*/
+section.siete {
+}
+
+// STACK
+/*---------------------------------------------------------*/
+p {
+    //@include stack;
+}

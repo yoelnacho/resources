@@ -1,0 +1,165 @@
+// *************************************
+//
+//   Alert
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$alertbox-small-fontsize: 12px;
+
+$alertbox-error-background: #F44336; 
+$alertbox-error-holder: #C62828;
+$alertbox-attention-background: #FFEB3B;
+$alertbox-attention-holder: #FDD835;
+$alertbox-success-background: #8BC34A;
+$alertbox-success-holder: #558B2F;
+$alertbox-notification-background: #00BCD4;
+$alertbox-notification-holder: #00838F;
+$alertbox-other-background: #8C8C8C;
+$alertbox-other-holder: #424242;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-alertbox {
+    @include transition(opacity, $animation-time);
+    @extend %composite-layer;
+    @extend %full-width;
+
+    background-color: $color-quinary; 
+    color: $color-secondary;
+    height: $height-large;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    z-index: $z-above;
+
+    button {
+        @include transition(background, $animation-time, ease);
+
+        background: inherit;
+        border: 0;
+        color: inherit;
+        height: $height-large;
+        padding: 0;
+        width: $height-large;
+
+        >span {
+            line-height: $height-large;
+        }
+    }
+
+    p { 
+        @include break-point($bp-mobile) {
+            font-size: toem($alertbox-small-fontsize);
+        }
+
+        @extend %text-center;
+            
+        strong {
+            line-height: 1.5;
+            vertical-align: top; 
+        }
+    }
+
+    &.ng-hide {
+        opacity: 0;
+    }
+}
+
+.m-alertbox--error {
+    background: $alertbox-error-background; 
+    color: $color-white;
+
+    button {
+        background-color: $alertbox-error-background;
+
+        &:hover {
+            background-color: $alertbox-error-holder;
+        }
+    }
+}
+
+.m-alertbox--success {
+    background: $alertbox-success-background;
+    color: $color-white;
+
+    button {
+        background: $alertbox-success-background;
+        &:hover {
+            background-color: $alertbox-success-holder;
+        }
+    }
+}
+
+.m-alertbox--attention {
+    background: $alertbox-attention-background;
+    color: $color-secondary;
+
+    button {
+        background: $alertbox-attention-background;
+
+        &:hover {
+            background-color: $alertbox-attention-holder;
+        }
+    }
+}
+
+.m-alertbox--notification {
+    background: $alertbox-notification-background;
+    color: $color-white;
+
+    button {
+        background: $alertbox-notification-background;
+
+        &:hover {
+            background-color: $alertbox-notification-holder;
+        }
+    }
+}
+
+.m-alertbox--other {
+    background: $alertbox-other-background;
+    color: $color-white;
+    text-decoration: none;
+
+    button {
+       &:hover {
+            background-color: $alertbox-other-holder;
+        }
+    }
+}
+
+.m-alertbox-icon--close {
+    cursor: pointer;
+}
+
+.m-alertbox-container {
+    @include v-align();
+    @extend %full-width;
+
+    height: 100%;
+    
+}
+
+.m-alertbox-icon {
+    @extend %text-center;
+
+    font: {
+        size: torem(40px); 
+        weight: 400;
+    }
+    line-height: normal;
+    padding: 0;
+    width: $height-header;
+
+    > span {
+        line-height: $height-large;
+    }
+
+}

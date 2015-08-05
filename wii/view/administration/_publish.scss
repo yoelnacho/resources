@@ -1,0 +1,62 @@
+// *************************************
+//
+//   Publish
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.layout-section-publish {
+    .layout-section-content {
+        padding-bottom: 0;
+
+        @include break-point($bp-tablet) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    aside, 
+    article { 
+        padding: {
+            top: $space-large;
+            right: 0;
+            bottom: $space-large + $space-medium;
+            left: 0;
+        }
+        
+        @include break-point($bp-tablet) {
+            padding-bottom: 0; 
+            padding-top: 0; 
+        }
+    }
+
+    article {
+        border-left: 1px solid $color-quaternary;
+        padding-left: $space-medium;
+        min-height: 600px;
+
+        @include break-point($bp-tablet) {
+            border-left: none;
+            padding-left: 0;
+            min-height: 0;
+        }
+    }
+
+    aside {
+        @include span(1/4);
+        padding-right: 30px;
+
+        ul { 
+            margin: 0; 
+            padding: 0;
+        }
+    }    
+}
+

@@ -1,0 +1,37 @@
+// *************************************
+//
+//   Header
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$time-headroom: 0.5s;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+[role="banner"] {
+    @include cf;
+
+    background-color: $color-primary;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: $z-above;
+}
+
+// Animation
+.slideInDown {
+    @include transition-duration($animation-time);
+    @include transform( translate3d(0, 0, 0));
+}
+
+.slideOutUp {
+    @include transition-duration($animation-time);
+    @include transform( translate3d(0, -100%, 0));
+}

@@ -1,0 +1,46 @@
+// *************************************
+//
+//   Signin - user
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-signin-user {
+    margin-bottom: $space-small;
+
+    &.m-signin-user--input {
+        @include break-point($bp-tablet) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.m-signin-user-info { 
+    padding-left: $space-small;
+    word-break: break-all;
+
+    @include break-point($bp-tablet) {
+        padding-left: 0;
+    }
+}
+
+.m-signin-user-ico {
+    width: $space-small;
+
+    > * {
+        color: $color-font-secondary;
+        font-size: torem(42px);        
+    }
+}
+
+.m-signin-user-click {
+    cursor: pointer;
+}

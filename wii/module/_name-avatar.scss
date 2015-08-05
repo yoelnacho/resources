@@ -1,0 +1,118 @@
+// *************************************
+//
+//   Name & Avatar
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$m-nameAvatar-radius: 50px;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-nameAvatar {    
+    @extend %pull-left;    
+}
+
+.m-nameAvatar-content {
+    @include v-align;
+    
+    height: $height-header;
+
+    > div:last-child {
+        padding: 0 5px;
+    }
+}
+
+.m-nameAvatar-name {   
+    @include transition(background, $animation-time, ease);
+    @extend %paragraphs-small;
+    
+    color: $color-font-secondary;
+    font-weight: 700;
+    padding: 0 $space-small/2;
+    text-align: center;
+
+    > span {
+        @include truncate(150px);
+        
+        display: block;
+        height: $height-header;
+        line-height: $height-header;
+        min-width: 100px;
+    }
+
+    &:hover, 
+    &.is--active { 
+        background-color: $color-quinary;
+        color: $color-font-secondary;
+        text-decoration: none;
+    }
+}
+
+.nav-link-avatar {
+    &:hover,
+    &.is--active {
+        .m-nameAvatar--no-image { 
+            background-color: $color-primary;
+        }
+    }
+}
+
+.m-nameAvatar-avatar {
+    @include border-radius(50%);
+    @extend %text-center;
+    @extend %no-overflow;
+    
+    display: block;
+    margin: 5px;
+    height: torem($m-nameAvatar-radius);        
+    width: torem($m-nameAvatar-radius);
+
+    img {
+        @extend %full-width;
+
+        height: 100%; // partial line
+        // max-width: 100%; partial comment
+    }
+}
+
+.m-nameAvatar--no-image {    
+    border: none;
+    background-color: $color-quinary;
+
+    figcaption {
+        @extend %pos--relative;
+
+        line-height: $m-nameAvatar-radius;
+        color: $color-font-secondary;
+        padding: 0;
+        text-transform: uppercase;
+    }
+}
+
+[data-wii-nav~="unique"] {
+    .m-nameAvatar-name { 
+        &:hover, 
+        &.is--active { 
+            background-color: $color-primary;
+        }
+    }
+
+    .nav-link-avatar {
+        .m-nameAvatar--no-image { 
+            background-color: $color-primary;
+        }
+
+        &:hover,
+        &.is--active {
+            .m-nameAvatar--no-image { 
+                background-color: $color-quinary;
+            }
+        }
+    }
+}

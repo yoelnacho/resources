@@ -1,0 +1,27 @@
+// *************************************
+//
+//   Photo Wall
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.photo-wall {
+    padding-bottom: torem(60px);
+    padding-top: torem(20px);
+
+    > div { // masonry
+        @extend %no-overflow;
+        min-width: 280px;
+    }
+
+    @include break-point($bp-tablet) {
+        padding: torem(20px);
+    }
+}

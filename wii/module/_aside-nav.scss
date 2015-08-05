@@ -1,0 +1,70 @@
+// *************************************
+//
+//   Aside nav
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-nav-tab {
+    @include v-align();
+    @extend %text-right;
+    @extend %paragraphs-small;
+
+    border-bottom: 1px solid $color-quaternary;
+    color: $color-font-secondary;
+    cursor: pointer;
+    height: $space-large;
+    margin: 0;
+    padding: 0 $space-small;
+    position: relative;
+    text-transform: uppercase;
+    word-break: break-all;
+
+    &.is--active {
+        border-bottom: none;
+    }
+    
+    .m-nav-tab-name {
+        padding-right: 10px;
+        text-align: left;
+    }
+
+    .m-nav-tab-indicator { // icon
+        background-color: transparent;
+        font-size: torem(27px);
+        line-height: $space-large;
+        padding-left: 10px;
+        text-align: center;
+        width: $space-small;
+    }
+
+    .m-nav-tab-indicator ~ .m-nav-tab-name {
+        font-weight: 700;
+    }
+}
+
+.m-nav-tab--left {
+    border: none;    
+    margin-right: 10px;
+    padding: 0;
+
+    .m-nav-tab-name {
+        text-align: right;
+    }
+
+    .m-nav-tab-indicator {
+        background-color: $color-primary;
+        margin-top: -($space-large/2);
+        padding: 0;        
+        position: absolute;
+        right: -$space-medium;
+        top: 50%;
+    }
+}

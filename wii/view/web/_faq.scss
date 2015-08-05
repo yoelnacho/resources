@@ -1,0 +1,69 @@
+// *************************************
+//
+//   Faq
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-faq {
+    @include center(torem(640px));
+
+    border-bottom: 1px solid $color-quaternary;
+    color: $color-font-secondary;
+    display: block;
+    margin: 0 auto;
+    text-align: left;    
+}
+
+.accordion-tab {
+    @extend %headline-5;
+
+    border-top: 1px solid $color-quaternary;
+    cursor: pointer;
+    font-weight: 400;
+    margin: 0;
+    padding: 14px 40px 14px 0;
+    position: relative;
+    
+    > span {
+        height: 32px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        width: 32px;
+
+        button {
+            @extend %text-center;
+
+            border: 0;
+            background-color: transparent;
+            color: $color-font-secondary;
+            font: {
+                size: torem(32px); // 27px
+                weight: 400;
+            }            
+            padding: 0 1px;            
+        }
+    }
+}
+
+.accordion-panel {
+    @extend %no-overflow;
+
+    p {
+        line-height: 1.5;
+        padding-bottom: torem(16px);
+
+        &:last-child {
+            margin: 0; 
+        }
+    }
+}

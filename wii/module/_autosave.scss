@@ -1,0 +1,138 @@
+// *************************************
+//
+//   Autosave
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-autosave {
+    @extend %text-center;
+    @extend %no-overflow;
+
+    display: inline-block;
+    margin-left: -$space-small;
+    margin-right: $space-small;
+    position: relative;
+    vertical-align: top;
+}
+
+.m-autosave-msg {
+    @extend %paragraphs-small;
+    
+    color: $color-font-secondary;
+    display: block;
+    line-height: 1.5;
+    padding-top: 30px;
+}
+
+.m-autosave-ico--static {
+    display: block;
+    font-size: 18px;
+    left: 23px;
+    top: 12px;
+    vertical-align: middle;
+}
+
+.m-autosave-ico--static,
+.m-autosave-ico--animate,
+.m-autosave-ico--animate:before,
+.m-autosave-ico--animate:after {
+    position: absolute;
+}
+
+.m-autosave-ico--animate {
+    background: $color-quaternary;
+    background: -moz-linear-gradient(left, $color-quaternary 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, $color-quaternary 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, $color-quaternary 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, $color-quaternary 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, $color-quaternary 10%, rgba(255, 255, 255, 0) 42%);
+    border-radius: 50%;
+    display: block;
+    font-size: 2px; // size
+    height: 11em;
+    left: 18px;
+    text-indent: -9999em;
+    top: 7px;
+    width: 11em;
+
+    -webkit-animation: autosave 1.4s infinite linear;
+    animation: autosave 1.4s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.m-autosave-ico--animate:before {
+    background: $color-quaternary;
+    border-radius: 100% 0 0 0;
+    content: '';
+    height: 50%;
+    left: 0;
+    top: 0;
+    width: 50%;
+}
+.m-autosave-ico--animate:after {
+    background: $color-white;
+    border-radius: 50%;
+    bottom: 0;
+    content: '';
+    height: 75%;
+    left: 0;
+    margin: auto;
+    right: 0;
+    top: 0;
+    width: 75%;
+}
+
+// .m-autosave-ico--animate:before,
+// .m-autosave-ico--animate:after {
+//   position: absolute;
+//   content: '';
+// }
+
+// .m-autosave-ico--animate:before {
+//   width: 5.2em;
+//   height: 10.2em;
+//   background: $color-white;
+//   border-radius: 10.2em 0 0 10.2em;
+//   top: -0.1em;
+//   left: -0.1em;
+//   -webkit-transform-origin: 5.2em 5.1em;
+//   transform-origin: 5.2em 5.1em;
+//   -webkit-animation: load2 1.5s infinite ease 1s;
+//   animation: load2 1.5s infinite ease 1s;
+// }
+
+// .m-autosave-ico--animate {
+//   font-size: 2.3px; // Circle size
+//   text-indent: -99999em;
+//   width: 10em;
+//   height: 10em;
+//   top: 6px;
+//   left: 18px;
+//   box-shadow: inset 0 0 0 2px $color-quaternary;
+//   -webkit-transform: translateZ(0);
+//   -ms-transform: translateZ(0);
+//   transform: translateZ(0);
+// }
+
+// .m-autosave-ico--animate:after {
+//   width: 5.2em;
+//   height: 10.2em;
+//   background: $color-white;
+//   border-radius: 0 10.2em 10.2em 0;
+//   top: -0.1em;
+//   left: 5.1em;
+//   -webkit-transform-origin: 0px 5.1em;
+//   transform-origin: 0px 5.1em;
+//   -webkit-animation: load2 1.5s infinite ease;
+//   animation: load2 1.5s infinite ease;
+// }

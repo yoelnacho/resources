@@ -1,0 +1,140 @@
+// *************************************
+//
+//   Manager
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$overview-content-width: 156px; 
+$m-lat-list-width: 240px;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.p-administration-manager {}
+
+
+// DELETE
+.layout-section--overview {
+
+    h3 {
+        @extend %headline-5;
+        
+        margin: 0 0 $space-small;
+    }
+    p, ul { 
+        margin-top: 0;
+    }
+
+    .m-circularImage {
+        @extend %pull-left;
+
+        padding-bottom: $space-small;
+        width: $overview-content-width;
+    }
+
+    .m-circularImage-img { 
+        @include circular-image(120px, dashed);
+    }
+
+    article { padding-left: $overview-content-width;}
+
+    @include break-point($bp-tablet) {
+        .m-circularImage,
+        h3 { 
+            text-align: center;
+        }
+
+        .m-circularImage { 
+            width: 100%;
+        }
+
+        .m-circularImage-img { 
+            display: inline-block;
+        }
+
+        article { 
+            padding-left: 0;
+        }
+    }    
+}
+
+// Profiles
+.layout-section-profiles {
+    .profiles-title {
+        h2 {
+            @extend %headline-3;
+            @extend %no-margin;
+
+            line-height: 1;
+        }
+        h6 {
+            @extend %headline-6;
+
+            line-height: 1.5;
+            margin-top: $space-small;
+        }
+    }
+
+    .profiles-layout-img {
+        @include col(2.9/4);
+
+        margin-bottom: $space-small;
+    }
+
+    .profiles-layout-list {
+        @include col(1.1/4);
+    }
+
+    .profiles-list {
+        border-bottom-width: 0;
+        border-color: $color-quaternary;
+        border-left-width: 1px;
+        border-right-width: 1px;
+        border-style: solid;
+        border-top-width: 1px;
+    }
+
+    .profiles-scroll {
+        height: 240px;
+        overflow-x: hidden;
+    }
+
+    .m-lat-header {
+        border-bottom: 1px solid $color-quaternary;
+    }
+
+    .m-lat-list {
+        border-top: none;
+        margin-bottom: 0;
+
+        li {
+            cursor: default;
+            padding-right: 10px;
+            
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        p {
+            @extend %no-margin;
+        }
+
+    }
+
+    @include break-point($bp-desktop) {
+        .profiles-layout-img,
+        .profiles-layout-list{
+            @include stack();
+        }
+
+        .profiles-scroll {
+            height: auto;
+        }
+    }
+}

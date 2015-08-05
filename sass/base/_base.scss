@@ -1,0 +1,70 @@
+@import "normalize";
+
+* { @include box-sizing(border-box);}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: $color-beta;
+}
+
+main {
+	@include background-grid;
+	//max-width: $max-width;
+	margin: 0 auto;
+	min-height: 100%;	
+}
+
+section {
+	background-color: red;
+	
+	&:nth-child(1) {
+		background-color: green;
+		@include breakpoint($medium){
+			@include grid-span(1, 3);
+		}
+
+		@include breakpoint($large){
+			@include grid-span(1, 2);
+		}
+
+	}
+
+	&:nth-child(2) {
+		background-color: blue;
+		@include breakpoint($medium){
+			@include grid-span(1, 1);
+		}
+
+		@include breakpoint($large){
+			@include grid-span(1, 1);
+		}
+
+	}
+
+	&:nth-child(3) {
+		background-color: yellow;
+		@include breakpoint($medium){
+			@include grid-span(1, 2);
+		}
+
+		@include breakpoint($large){
+			@include grid-span(3, 3);
+		}
+
+	}
+}
+
+p {
+	@include inline-block;
+
+	span {
+		font-weight: bolder;
+		color:white;
+		background-color: red;
+		padding:2px 5px;
+	}
+}

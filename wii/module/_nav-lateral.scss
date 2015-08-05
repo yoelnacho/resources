@@ -1,0 +1,200 @@
+// *************************************
+//
+//   Lateral Nav
+//
+//   . lateral nav
+//   . create profiles
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$m-lat-width: 240px;
+$m-lat-padding: 10px;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+[data-wii-lat]{
+    @include transition-duration($animation-time);
+    @include transition-timing-function(cubic-bezier(.42,0,.58,1));
+
+    background-color: $color-primary;
+    bottom: 0;
+    color: $color-font-secondary;     
+    position: fixed;    
+    text-align: left;
+    top: 0;
+    width: $m-lat-width;
+    z-index: $z-above + 1;
+
+    .m-lat-header {   
+        background-color: $color-quinary;
+        color: $color-font-secondary;
+    }
+    
+    .m-lat-btn {
+        @include transition(background, $animation-time);
+        @extend %pull-right;
+        @extend %inline;
+        
+        background-color: transparent;
+        border: 0;
+        color: $color-font-secondary;
+        font-size: torem(22px);
+        line-height: $height-header;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: $height-header;
+    }
+
+    .m-lat-content {
+        position: relative; 
+
+        [data-wii-nav] {
+            .nav-link {
+                @extend %headline-5;
+                
+                float: left;
+            }
+        }
+    }
+
+    .m-lat-title {
+        @extend %paragraphs-small;
+
+        line-height: 1.5;
+    }
+
+    p { margin: 0;}
+}
+
+[data-wii-lat~="left"]{
+    @include transform( translate3d(-100%, 0, 0));
+
+
+    &.is--active {
+        @include box-shadow (6px -6px 10px -6px rgba(166,164,166,0.57));
+        @include transform( translate3d(0, 0, 0));
+    }
+}
+
+[data-wii-lat~="right"]{
+    @include transform( translate3d(100%, 0, 0));
+    right: 0;
+    
+    &.is--active {
+        @include box-shadow (-6px -6px 10px -6px rgba(166,164,166,0.57));
+        @include transform( translate3d(0, 0, 0));
+    }
+}
+
+[data-wii-lat~="feedback"]{
+    .form-feedback {
+        padding: $space-small;
+
+        .input-content textarea {
+            @extend %paragraphs-small;
+
+            height: 160px;
+        }
+    }
+
+    .m-lat-title {
+        padding-bottom: 10px;
+    }
+
+    .m-lat-info {
+        padding: 0 $space-small;
+    }
+
+    .m-lat-info--thanks {
+        padding: $space-large $space-small $space-small $space-small; 
+
+        p {
+            @extend %text-center;
+            @extend %paragraphs;
+            
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: $space-small;
+        }
+    }
+}
+
+[data-wii-lat~="delete"]{
+    .m-lat-info {
+        padding: $space-small 0;
+    }
+    
+    .m-lat-content {
+        padding: $space-small;
+    }
+}
+
+[data-wii-lat~="data"]{
+    .m-lat-btn:hover {
+        background-color: $color-quaternary;
+    }
+}
+
+// List
+.m-lat-list {
+    border-top: 1px solid $color-quaternary;
+    list-style: none;
+    margin-top: 0;
+    padding: 0;
+
+    li {
+        @extend %no-overflow;
+
+        border-bottom: 1px solid $color-quaternary;
+        cursor: pointer;
+        height: $height-menu;
+        padding: {
+            top: $m-lat-padding;
+            right: $height-menu + $m-lat-padding;
+            bottom: $m-lat-padding;
+            left: $m-lat-padding;
+        }
+        position: relative;
+
+        p {
+            @extend %paragraphs-small;
+        }
+
+        &:hover,
+        &.is--active {
+            background-color: $color-quinary;
+        }
+    }
+
+    &.m-lat-list--footer {
+        .m-lat-title {
+            line-height: 3;
+        }
+    }
+}
+
+// Header
+.m-lat-header {   
+    h4 {
+        @extend %inline;
+        @extend %paragraphs;
+
+        font-weight: 700;       
+        line-height: $height-header;
+        margin: 0;
+        padding-left: $space-small/2;
+    }
+
+    .m-lat-btn:hover {
+        background-color: $color-primary;
+    }
+    
+}

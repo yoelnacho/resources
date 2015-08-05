@@ -1,0 +1,109 @@
+// *************************************
+//
+//   Layout
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.layout-section {
+    color: $color-font-secondary; //theme
+
+    &:nth-of-type(even) {
+        background-color: $color-secondary; //theme
+        color: $color-font-primary; //theme
+    }
+} 
+
+// HEADER
+.layout-section-header {
+    @extend %text-center;
+
+    > * { 
+        margin: 0;
+        &:last-child {
+            padding-bottom: torem(40px);
+        }
+    }
+
+    > h2 {
+        @extend %headline-3;
+
+        font-weight: 400;
+        line-height: 1.1;
+        padding-bottom: 10px;
+
+        & ~ p,
+        & ~ h5 {
+            @extend %paragraphs;
+
+            font-weight: 400;
+            line-height: normal;
+        }
+    }   
+}
+
+// CONTENT
+.layout-section-content {
+    padding: {
+        top: torem($space-large);
+        right: torem($space-small);
+        bottom: torem($space-large);
+        left: torem($space-small);
+    }
+
+    @include break-point($bp-mobile) {
+        padding-bottom: toem($space-medium);
+        padding-top: toem($space-medium);
+    }
+}
+
+.layout-section-content-mobile--zero {
+    @include break-point($bp-tablet) {
+        padding: 0;
+    }
+}
+
+[data-wii-lay~="small"] {
+    @include center(torem($layout-w-small));
+}
+[data-wii-lay~="medium"] {
+    @include center(torem($layout-w-medium));
+}
+[data-wii-lay~="large"] {
+    @include center(torem($layout-w-large));
+}
+[data-wii-lay~="full"] {
+    @include center();
+}
+
+// Notification
+.layout-section-notification {
+    .notification-data--email {
+        @extend %headline-5;
+
+        padding-bottom: torem(30px);
+        padding-top: torem(24px);
+    }
+}
+
+.p-web {
+    .layout-section-content {
+        padding: {
+            top: torem($space-large + $space-medium);
+            bottom: torem($space-large + $space-medium);
+        }
+        
+        @include break-point($bp-mobile) {
+            padding-bottom: toem($space-medium);
+            padding-top: toem($space-medium);
+        }
+    }
+}

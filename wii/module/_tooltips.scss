@@ -1,0 +1,36 @@
+// *************************************
+//
+//   Tooltips
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.tooltip {
+    @include border-radius(3px);
+
+    background-color: #555;
+    display: none;
+    position: fixed;
+    text-align: center;
+    z-index: $z-max - 2;
+}
+
+.tooltip span {
+    @extend %paragraphs-small;
+    
+    color: $color-font-primary;
+    display: block;
+    padding: 5px 8px;
+    
+    &:empty {
+        display: none;
+    }
+}

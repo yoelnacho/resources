@@ -1,0 +1,85 @@
+// *************************************
+//
+//   Kinetic Slider
+//   
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.kinetic-slider-container {
+    overflow: hidden;
+}
+
+.kinetic-slider-content {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: $z-low;
+
+    a {
+        @extend %inline;
+
+        font-size: torem(23px);
+        height: $height-submenu;
+        line-height: 2.1;
+        position: relative;
+        text-decoration: none;
+        vertical-align: middle;
+        width: torem(120px);
+
+        span {
+            
+            @extend %text-uppercase;
+
+            color: $color-font-secondary;
+            font: { 
+                family: $base-font-family;
+                size: torem(11px);
+                weight: 400;
+            }
+            line-height: $height-submenu;
+            position: relative;
+        } 
+        
+        &:before {
+            color: $color-font-secondary;
+        }
+
+        &:hover {
+            background-color: transparent;
+        }
+        &.is--active {
+            background-color: $color-primary;            
+        }
+    }
+}
+
+.kinetic-slider-container--secondary {
+    background-color: $color-primary;
+
+    .kinetic-slider-content {
+        a.is--active {
+            background-color: $color-tertiary;
+        }
+    }
+}
+
+.kinetic-slider-container--icon {
+    .kinetic-slider-content {
+        a {
+            span {
+                bottom: 10px;
+                left: 0;
+                line-height: 1;
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+}

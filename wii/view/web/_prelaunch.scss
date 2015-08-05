@@ -1,0 +1,82 @@
+// *************************************
+//
+//   Prelaunch
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.p-web {
+    // Video - landing
+    .layout-section-video-content {
+        height: auto; 
+        max-width: 100%; 
+        overflow: hidden; 
+        padding-bottom: 56.25%; 
+        position: relative; 
+
+        video {
+            background-color: #fffcff; //$color-black;
+            display: block;
+            height: 100%;
+            left: 0; 
+            position: absolute; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1;
+        }
+    }
+    
+    // Subscribe - landing
+    .form-subscribe {
+        .tooltip-hint { color: $color-font-primary;}
+
+        [data-wii-btn] {
+            padding: 0;
+        }
+
+        .subscribe-success {
+            @extend %text-center;
+            @extend %headline-5;
+            
+            margin-bottom: 35px;
+            margin-top: 35px;
+        }
+
+        @include break-point($bp-tablet) {
+            .input-content {
+                text-align: center;
+
+                [data-wii-btn] {
+                    padding-left: $space-large;
+                    padding-right: $space-large;
+                    width: auto;
+                }
+            }
+        }
+
+        &.form-invite {
+            .subscribe-success {
+                margin-bottom: 24px;
+                margin-top: -15px;
+
+                & ~ [data-wii-btn] {
+                    padding-left: $space-large;
+                    padding-right: $space-large;
+
+                    @include break-point($bp-mobile) {
+                        padding-left: $space-small;
+                        padding-right: $space-small;
+                    }
+                }
+            }
+        }
+    }
+}

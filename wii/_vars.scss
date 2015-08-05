@@ -1,0 +1,149 @@
+// *************************************
+//
+//   VARIABLES
+//
+//   -> Fonts
+//   -> Basic colors
+//   -> Theme colors
+//   -> Heights
+//   -> Layouts
+//   -> Breakpoints
+//   -> Animations
+//   -> Icon buttons
+//   -> Avatar
+//   -> Z-indexs
+//
+// *************************************
+
+// -------------------------------------
+//   Fonts
+// -------------------------------------
+
+$base-font-family: 'HelveticaNeueW02-45Ligh', Helvetica, Arial, sans-serif; // 45
+$secondary-font-family: 'HelveticaNeueW02-Thin', Helvetica, Arial, sans-serif; // 35
+$tertiary-font-family: 'HelveticaNeueW02-UltLt', Helvetica, Arial, sans-serif; // 25
+
+// -------------------------------------
+//   Basic colors
+// -------------------------------------
+
+$color-black: #000;
+$color-white: #FFF; //color-primary
+$color-grey-dark: #707070; //color-secondary
+$color-grey: #8c8c8c; //color-tertiary
+$color-grey-light: #CCC; //color-quaternary
+$color-grey-brighten: #F0F0F0; //color-quinary
+
+$color-red: #F44336;
+$color-red-light: #ff8799;
+
+$color-green: #CDDC39;
+$color-green-light: #dcedc8;
+$color-green-brigthen: #aed581;
+
+$color-yellow: #FF9800;
+
+$color-blue: #2196F3;
+$color-blue-light: #3B88C3;
+
+// -------------------------------------
+//   Theme colors
+// -------------------------------------
+
+$color-primary: $color-white;
+
+// Gray
+$color-secondary: $color-grey-dark;
+$color-tertiary: $color-grey;
+$color-quaternary: $color-grey-light;
+$color-quinary: $color-grey-brighten;
+$color-senary: $color-grey-brighten;
+
+// Green
+// $color-secondary: #8BC34A;
+// $color-tertiary: #9ccc65;
+// $color-quaternary: #aed581;
+// $color-quinary: #c5e1a5;
+// $color-senary: #dcedc8;
+
+// Deep orange
+// $color-secondary: #FF5722;
+// $color-tertiary: #ff7043;
+// $color-quaternary: #ff8a65;
+// $color-quinary: #ffab91;
+// $color-senary: #ffccbc;
+
+// Red
+// $color-secondary: #F44336;
+// $color-tertiary: #ef5350;
+// $color-quaternary: #e57373;
+// $color-quinary: #ef9a9a;
+// $color-senary: #ffcdd2;
+
+$color-font-primary: $color-white;
+$color-font-secondary: #707070;
+
+$color-link: #2D76B9;
+
+// -------------------------------------
+//   Height
+// -------------------------------------
+
+$height-small: 20px;
+$height-medium: 40px;
+$height-large: 60px;
+
+$space-small: 20px;
+$space-medium: 40px;
+$space-large: 60px;
+
+// -------------------------------------
+//   Layout
+// -------------------------------------
+
+$height-header: $height-large;
+$height-submenu: $height-large;
+$height-menu: $height-large;
+$height-footer: $height-large;
+
+$layout-w-small: 500px;
+$layout-w-medium: 800px;
+$layout-w-large: 960px;
+
+// -------------------------------------
+//   Breakpoints
+// -------------------------------------
+
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 960px;
+$bp-large: 1024px;
+
+// -------------------------------------
+//   Animations
+// -------------------------------------
+
+$animation-time: .3s;
+
+// -------------------------------------
+//   Icons buttons
+// -------------------------------------
+
+$btn-icon: $height-medium;
+$btn-icon-small: $height-large/2;
+
+// -------------------------------------
+//   Avatar
+// -------------------------------------
+
+$user-avatar-radius: 100px;
+
+// -------------------------------------
+//   Z-index
+// -------------------------------------
+
+$z-base: 0;
+$z-low: 1;
+$z-middle: 10;
+$z-above: 1000;
+$z-max: 10000;

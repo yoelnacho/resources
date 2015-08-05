@@ -1,0 +1,108 @@
+// *************************************
+//
+//   Table
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$table-height-icon: 32px;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+
+.m-table {
+    @extend %full-width;
+
+    background-color: $color-primary;
+    display: table;
+    margin-bottom: $space-medium;
+    position: relative;
+
+    .m-widget {
+        float: none;
+        margin-bottom: 0;
+    }
+
+    .m-widget-content {
+        height: auto;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    @include break-point($bp-tablet) {
+        padding-bottom: $space-small;
+    }
+}
+
+.m-table-head {
+   @extend %paragraphs-small;
+
+    display: table-header-group;
+    font-weight: 700;
+    line-height: $height-large;
+}
+
+.m-table-row {
+    display: table-row;
+    height: $height-large;
+
+    &:before {
+        @extend %full-width;
+
+        border-top: 1px solid $color-quinary;
+        content: "";
+        padding: 0 $space-small;
+        position: absolute;
+        right: 0;
+    }
+
+    .m-table-cell:first-of-type {
+        padding-left: $space-small;
+    }
+
+    @include break-point($bp-tablet) {
+        border-top: 1px solid $color-quinary;
+        display: block;
+        height: auto;
+        padding: $space-small 0;
+        position: relative;
+
+        &:before {
+            border-top: 0;
+            content: "";
+        }
+    }
+}
+
+.m-table-cell {
+    @extend %paragraphs-small;
+
+    display: table-cell;
+    cursor: n-resize;
+    line-height: 1;
+    padding-right: 10px;
+    position: relative;
+    vertical-align: middle;
+
+    > [class*="icon"] {
+        height: $table-height-icon +2;
+        width: $table-height-icon +2;
+    }
+
+    @include break-point($bp-tablet) {
+        display: block;
+        padding: 5px 10px 5px $space-large;
+
+        &.m-table-cell-icon {
+            padding: 0 0;
+            position: absolute;
+            left: $space-small/2;
+            top: $space-small;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+// *************************************
+//
+//   Logo
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$logo-width: 125px;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.logo {
+    @extend %inline;
+
+    > a {
+        display: block;        
+    }
+}
+
+.logo-header {
+    @extend %pull-left;
+
+    margin: 5px 0;
+    overflow: hidden;
+    width: $logo-width;
+
+    > a {
+        line-height: normal;
+
+        img {
+            max-width: $logo-width;
+        }
+
+        span {
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-color: transparent;            
+            background-size: contain;
+            color: transparent;
+            display: block;
+            height: 50px;
+            text-indent: -9999em;
+            width: $logo-width;
+        }
+
+        &:active {
+            box-shadow: none !important;
+        }
+    }
+
+    @include break-point ($bp-mobile) {
+        width: 53px;
+    }
+}
+
+.logo-header-img {
+    background-image: url("https://resources.wiibii.com/dev/images/logo/logo-wiibii.svg");
+}
+
+.logo--legal {
+    font-size: torem($space-medium);
+    height: torem($space-medium);
+    line-height: torem($space-medium);
+    margin: 0 toem(5px);
+    width: $space-medium;
+}

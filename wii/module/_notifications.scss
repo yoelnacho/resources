@@ -1,0 +1,36 @@
+// *************************************
+//
+//   Notifications
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$notification-icon-radius: torem(150px);
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-notifications-icon {
+    @include border-radius(9999px);
+    @extend %text-center;
+    
+    border-color: $color-secondary;
+    border-style: solid;
+    border-width: 1px;
+    font-size: torem(60px);
+    line-height: $notification-icon-radius;
+    margin: 0 auto $space-small;
+    width: $notification-icon-radius;
+}
+
+.m-notifications-resend {
+    border-top: 1px solid $color-quaternary;
+    
+    p {
+        @extend %paragraphs-small;
+    }
+}

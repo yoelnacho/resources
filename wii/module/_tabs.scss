@@ -1,0 +1,194 @@
+// *************************************
+//
+//   Tabs
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$btn-tabs-submenu: 40px;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.kinetic-slider-container,
+.m-tabs {
+    @extend %full-width;
+    @extend %text-center;
+
+    background-color: $color-quaternary;
+    height: $height-submenu;
+    padding: 0;
+    position: relative;
+    z-index: $z-low;
+}
+
+.m-tabs-holder {
+    height: 100%;
+    margin: 0 $space-large;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
+
+.m-tabs-slider {
+    font-size: 0; //fix display inline-block;
+    left: 0;
+    min-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    .m-tabs-slider-content {
+        @extend %inline;
+
+        position: relative;
+
+        > a {
+            @include transition(background, $animation-time, ease);
+            @extend %inline;
+
+            color: $color-font-secondary;
+            font-size: torem(23px);
+            height: $height-submenu;
+            line-height: 2.1;
+            position: relative;
+            text-decoration: none;
+            vertical-align: middle;
+            width: torem(120px);
+
+            > span {
+                @extend %text-uppercase;
+
+                font: { 
+                    family: $base-font-family;
+                    size: torem(11px);
+                    weight: 400;
+                }
+            }
+        
+            &:hover,
+            &.is--active {
+                background-color: $color-primary;
+            }
+        }
+    }
+}
+
+.m-tabs-nav-arrows {
+    @include transition(background, $animation-time, ease);
+    @extend %text-center;
+
+    background-color: transparent;
+    border: 0;
+    height: $height-submenu;
+    position: absolute;
+    top: 0;
+    width: $height-submenu;
+    z-index: $z-low;
+
+    > span {
+        color: $color-tertiary;
+        font-size: torem(32px);
+        height: 42px; // fix ie
+        line-height: normal;
+    }
+
+    &:hover { background-color: $color-primary;}
+    &.m-tabs-nav-arrows--prev { left: 0;}
+    &.m-tabs-nav-arrows--next { right: 0;}
+}  
+
+// Style
+.m-tabs--secondary {
+    background-color: $color-primary;
+
+    .m-tabs-slider-content {
+        > a {
+            &:hover,
+            &.is--active {
+                background-color: $color-tertiary;
+            }
+        }
+    }
+
+    .m-tabs-nav-arrows:hover {
+        background-color: $color-tertiary;
+    }
+}
+
+// With icons
+.m-tabs--icon {
+    .m-tabs-slider-content {
+        > a {
+            > span {
+                bottom: 10px;
+                left: 0;
+                line-height: 1;
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+}
+
+// Submenu
+.m-tabs-submenu {
+    @extend %no-overflow;
+
+    left: 0;
+    max-width: torem(120px);
+    position: absolute; 
+    right: 0;
+    z-index: $z-low;
+
+    > a {
+        background-color: $color-primary;
+        color: $color-font-secondary;
+        font-size: torem(22px);
+        line-height: $btn-tabs-submenu;
+        margin-right: 3px;
+        width: $btn-tabs-submenu - 2;
+
+        &:hover,
+        &.is--active {
+            background-color: $color-secondary;
+            color: $color-white;
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }   
+
+    .m-tabs-submenu-lateral {
+        @extend %pull-right;
+
+        width: $btn-tabs-submenu - 2;
+
+        > a {
+            @extend %pull-left;
+            @extend %full-width;
+
+            background-color: $color-primary;
+            color: $color-font-secondary;
+            font-size: torem(22px);
+            line-height: $btn-tabs-submenu;
+            margin-top: 2px;
+            z-index: $z-above;
+
+            &:hover,
+            &.is--active {
+                background-color: $color-secondary;
+                color: $color-white;
+            }
+        }
+
+        &.m-tabs-submenu-lateral--active {
+            display: block;
+        }
+    }            
+}

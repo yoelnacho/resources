@@ -1,0 +1,36 @@
+// *************************************
+//
+//   Icons
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+// IE10 and IE11 Conditional
+html[data-useragent*='MSIE 10.0'],
+html[data-useragent*='rv:11.0']{
+    [class^="icon-"]:before,
+    [class*=" icon-"]:before  {
+        vertical-align: text-bottom;
+    }
+}
+
+[class*="icon-"],
+[class^="icon-"]:before,
+[class*=" icon-"]:before  {
+    @extend .wi-icon;
+    
+    font: {
+    	style: normal;
+    	weight: 400;
+    }
+	text-align: center;
+    vertical-align: baseline;
+}

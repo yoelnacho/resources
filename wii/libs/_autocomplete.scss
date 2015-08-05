@@ -1,0 +1,41 @@
+// *************************************
+//
+//   Autocomplete
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.angucomplete-dropdown {
+    @extend %full-width;
+    @extend %default-input;
+
+    background-color: $color-senary;
+    position: absolute;
+    z-index: $z-middle;
+}
+
+.angucomplete-searching {}
+
+.angucomplete-row {
+    &:hover,
+    &:focus {
+        background-color: #1e90ff;
+        color: $color-font-primary;  
+    }
+}
+
+.angucomplete-searching,
+.angucomplete-row {
+    color: $color-font-secondary;
+    cursor: default;
+    line-height: 1.5;
+    padding: 0 $space-small/2;
+    text-decoration: none;
+}

@@ -1,0 +1,102 @@
+// *************************************
+//
+//   Counter
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+.m-counter {
+    @include cf;
+
+    .countdown_row {
+        @extend %text-center;
+
+        display: block;
+        margin: 0 auto;
+    }
+
+    .countdown_section {
+        @extend %text-center;
+        @extend %text-uppercase;
+        @extend %inline;
+        @extend %paragraphs-small;
+        
+        color: $color-font-secondary;
+        padding: 0 10px;
+    }
+
+    .countdown_amount {
+        @include border-radius(200px);
+        @extend %inline;
+
+        border: 1px solid $color-secondary;
+        font: {
+            size: toem(72px);
+            weight: lighter;
+        }
+        line-height: 150px;
+        margin-bottom: 30px;
+        width: 150px;
+    }
+
+    .countdown_period {
+        display: block;
+    }
+
+    .countdown_descr {
+        @extend %full-width;
+
+        display: block;
+    }
+
+    &.page--thankyou {
+        .countdown_section {
+            color: $color-font-primary;
+        }
+        .countdown_amount {
+            border: 1px solid $color-primary;
+            color: $color-font-primary;
+        }
+    }
+
+    &.m--inverse {
+        .countdown_section {
+            color: $color-font-primary;
+        }
+        .countdown_amount {
+            border: 1px solid $color-primary;
+            color: $color-font-primary;
+        }
+    }
+
+    @include break-point($bp-tablet) {
+        .countdown_amount {
+            font-size: torem(32px);
+            height: 78px;
+            line-height: 78px;
+            margin-bottom: 10px;
+            width: 78px;
+        }
+    }
+
+    @include break-point ($bp-mobile) {
+        .countdown_section {
+            font-size: torem(12px);
+            padding: 0 5px;
+        }
+        .countdown_amount {
+            font-size: torem(25px);
+            height: 58px;
+            line-height: 58px;
+            margin-bottom: 10px;
+            width: 58px;
+        }
+    }
+}

@@ -1,0 +1,137 @@
+// *************************************
+//
+//   Public
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.p-administration-public {
+    .layout-section-content {
+        padding: {
+            top: 0;
+            bottom: 0;
+        }
+
+        &.p-commons {
+             padding: {
+                top: torem($space-large + $space-medium);
+                bottom: torem($space-large + $space-medium);
+            }
+        }
+
+        @include break-point($bp-tablet) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    [data-wii-nav~="public"] {
+        padding-left: 220px;
+        
+        .nav-label {
+            @extend %headline-5;
+            
+            font-weight: 400;
+        }
+
+        @include break-point($bp-desktop) {
+            padding-left: 0;
+
+            &[data-wii-nav~="lv-1"] {
+                padding-top: 80px;            
+                height: auto;
+
+                .nav-content { padding: 0;}
+                .nav-label {
+                    line-height: 1;
+                    padding-bottom: 18px;
+                    padding-top: 18px;
+                }
+
+                .nav-content,
+                .nav-label,
+                nav {
+                    display: block;
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.layout-section-public {
+    aside, 
+    article { padding: $space-medium 0 $space-large + $space-small;}
+
+    article {
+        border-left: 1px solid $color-quaternary;
+        padding-left: $space-medium;
+        min-height: $layout-w-small;
+
+        @include break-point($bp-tablet) {
+            border-left: none;
+            padding-left: 0;
+            padding-top: 0;
+        }
+    }
+
+    aside {
+        @include span(1/4);
+
+        padding-right: 30px;
+
+        ul { 
+            margin: 0; 
+            padding: 0;
+        }
+    }    
+
+    .public-data-content {
+        // @extend %paragraphs-small;
+
+        color: $color-font-secondary;
+        max-width: 640px;
+        margin-bottom: 55px;
+
+
+        h3 {
+            @extend %paragraphs-small;
+            
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+
+        p {
+            line-height: 1.5;
+            margin-top: 0;
+        }
+
+        figure {
+            max-width: 100%;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .content-list {
+            margin-bottom: 1.5em;
+
+            div {
+                margin-top: 5px;
+            }
+        }
+
+        @include break-point($bp-tablet) {
+            padding-top: toem($space-small);
+        }
+    }
+}

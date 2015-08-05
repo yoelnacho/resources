@@ -1,0 +1,353 @@
+// *************************************
+//
+//   Main menu
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.nav-link {
+    @include transition(background, $animation-time, ease);
+    @extend %text-center;
+    
+    background: transparent;
+    border: 0;
+    color: $color-font-secondary;
+    font: {
+        size: torem(40px); 
+        weight: 400;
+    }
+    height: $height-header;
+    line-height: $height-header;
+    padding: 0;
+    text-decoration: none; 
+    width: $height-header; 
+  
+    &[disabled] {
+        opacity: .3;
+
+        &:hover {
+            background-color: transparent;
+        }
+    } 
+
+    > span { @extend %hidden;}       
+}
+
+// DATA WII NAV
+[data-wii-nav] {
+    .nav-content {
+        color: $color-font-secondary;
+        padding-left: $space-small;
+        text-align: left;
+    }
+    
+    .nav-truncate {
+        &.is--responsive {
+            @include truncate(222px); // partial
+        }
+    }
+
+    .nav-label,
+    .nav-select {
+        @extend %no-margin;
+        @extend %headline-5;
+        
+        font-weight: 700;
+        line-height: $height-header;
+    }
+
+    .nav-select {
+        @extend %full-width;
+
+        background-position: 98%;
+        border: 0;
+        color: $color-font-secondary;
+        cursor: pointer;
+        height: $height-header;
+    }
+
+    nav, li, .nav-content {
+        display: inline-block;
+    }
+        
+    ul { 
+        @extend %no-margin;
+        padding: 0;
+
+        li {
+            vertical-align: top;
+        }
+    }
+    
+    [data-wii-btn~="circle"],
+    .nav-link {
+        background-color: transparent;
+    }
+
+    [data-wii-btn~="circle"] {
+        margin: 10px;
+    }
+
+    // HELPERS
+    &[data-wii-nav~="float"]{
+        @extend %pull-left;
+    }
+
+    &[data-wii-nav~="no-margin"] {
+        @extend %no-margin;
+    }
+}
+
+// STYLE
+[data-wii-nav~="lv-1"],
+[data-wii-nav~="lv-2"],
+[data-wii-nav~="lv-3"],
+[data-wii-nav~="lv-4"] {
+    height: $height-header;
+}
+
+[data-wii-nav~="lv-1"] {
+    background-color: $color-primary;
+
+    // Avatar
+    .nav-link-avatar { 
+        display: table;
+        text-decoration: none;
+    }
+
+    .nav-link {
+        &:hover, 
+        &.is--active { 
+            background-color: $color-quinary;
+        }
+    }
+
+    &[data-wii-nav~="unique"] {
+        background-color: $color-quinary;
+    }
+}
+
+
+[data-wii-nav~="lv-2"],
+.lv-2 {
+    background-color: $color-quinary;
+
+    .nav-link {
+        &:hover, 
+        &.is--active { background-color:  $color-quaternary;} //theme
+    }
+
+    .nav-link--about {
+        &.is--active { background-color: $color-quaternary;} //theme
+    }
+}
+
+
+[data-wii-nav~="lv-3"],
+.lv-3 {
+    background-color: $color-quaternary;
+
+    .nav-link {
+        &:hover, 
+        &.is--active { 
+            background-color: $color-secondary; //theme
+            color: $color-font-primary;
+        }
+    }
+}
+
+[data-wii-nav~="lv-4"] {
+    background-color: $color-secondary;
+
+    .nav-content,
+    .nav-select {
+        color: $color-font-primary;
+    }
+
+    .nav-select { background-image: url("https://resources.wiibii.com/dev/images/dev/arrowDown-white.svg");}
+
+    .nav-link {
+        color: $color-font-primary;
+
+        &:hover, 
+        &.is--active { 
+            background-color: $color-primary;
+            color: $color-font-secondary;
+        }
+    }
+}
+
+// MOBILE
+.lv-mobile {
+    @extend %no-overflow;
+
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: $height-header;
+    z-index: $z-above;
+
+    ul {
+        @include transition-duration($animation-time);
+        @include transition-timing-function(cubic-bezier(.42,0,.58,1));
+        @include transform( translate3d(0, 0, 0));
+        @extend %full-width;
+
+        &.ng-hide {
+            @include transform( translate3d(0, -100%, 0));
+        }
+    }
+}
+
+
+
+// POSITION
+[data-wii-nav~="right"] {
+    text-align: right;
+
+    .nav-content {
+        @extend %pull-left;
+    }
+}
+
+// TIPE
+[data-wii-nav~="nav"] {
+    @extend %no-overflow;
+
+    .nav-content {
+        padding-right: $space-small;
+
+        &.is--responsive { width: 100%;}
+    }  
+}
+
+[data-wii-nav~="card"],
+[data-wii-nav~="tool"] {
+    margin-bottom: $space-large;
+    position: relative;
+    overflow: visible;
+
+    .nav-content {
+        padding-right: $space-small;
+
+        > * {
+            @extend %paragraphs;
+
+            display: inline-block;
+            font-weight: 400;
+            line-height: $space-large;
+            margin: 0;
+        }
+
+        &.is--responsive {
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    ul {
+        display: inline-block;
+    }
+}
+
+[data-wii-nav~="card"] {
+    // Mobile
+    @include break-point($bp-tablet) {
+        margin-bottom: 0;
+    }
+}
+
+
+// UNIQUE
+[data-wii-nav~="unique"],
+.unique {
+    .nav-link {
+        &:hover,
+        &.is--active {
+            background-color: $color-primary;
+            color: $color-font-secondary;
+        }
+    }
+}
+
+// LANGUAGES
+.nav-link.nav-link-language {
+    padding: 17px;
+    position: relative;
+    vertical-align: top;
+
+    span {
+        @include border-radius(50%);
+        @extend %show;
+
+        background-image: url("https://resources.wiibii.com/dev/images/dev/flags/all-flags.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+
+        &.lg-cn {
+            background-position: 0 0;
+        }
+        &.lg-es {
+            background-position: 0 -26px;
+        }
+        &.lg-fr {
+            background-position: 0 -52px;
+        }
+        &.lg-it {
+            background-position: 0 -78px;
+        }
+        &.lg-us {
+            background-position: 0 -104px;
+        }
+    }
+
+    &:after {
+        @include border-radius(50%);
+
+        border: 1px solid $color-secondary;
+        bottom: 0;
+        content: "";
+        left: 0;
+        margin: 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+// Sticky nav
+.js-sticky {
+    @extend %full-width;
+    position: fixed;
+    top: 0;
+    z-index: $z-above - 1;
+}
+
+
+// [data-wii-btn~="circle"] {
+//     &:hover,
+//     &.is--active {
+//         background-color: $color-secondary;
+//         color: $color-font-primary;
+//     }
+// }
+
+// &[data-wii-nav~="inv"] {
+//     .nav-link {
+//         &:hover,
+//         &.is--active {
+//             background-color: $color-secondary;
+//             color: $color-font-primary;
+//         }
+//     }
+// }

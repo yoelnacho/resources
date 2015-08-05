@@ -1,0 +1,39 @@
+// *************************************
+//
+//   Footer
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.main-footer {
+    @extend %composite-layer;
+    @extend %full-width;
+    @extend %text-center;
+
+    background-color: $color-quinary;
+    border-top: none;
+    bottom: 0;
+    height: $height-footer; 
+    left: 0;
+    position: fixed;
+    z-index: $z-above + 2;
+}
+
+.main-footer-copyright {
+    @extend %inline;    
+    @extend %pull-left;
+    @extend %paragraphs-small;
+
+    color: $color-font-secondary;
+    line-height: $height-footer; 
+    margin: 0; 
+    padding-left: ($space-small / 2);
+}

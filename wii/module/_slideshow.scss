@@ -1,0 +1,65 @@
+// *************************************
+//
+//   Slideshow
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$slide-height-comment: $height-large;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-slideshow {
+    @extend %no-overflow;    
+    
+    figure {
+        position: relative;
+
+        img {
+            @extend %full-width;
+
+            max-width: 100%;
+        }
+    }
+
+    footer {
+        @extend %no-overflow;
+
+        background-color: $color-secondary; 
+        color: $color-primary;
+        max-height: $slide-height-comment;
+    }  
+}
+
+.m-slideshow-image {}
+
+.m-slideshow-comment {
+    @extend %paragraphs-small;
+
+    padding: 0 100px 0 15px;
+
+    .m-slideshow-comment-align {
+        @include v-align;
+
+        height: $slide-height-comment;
+    }
+
+}
+
+.m-slideshow-nav {
+    @extend %pull-right;
+    
+    padding-right: $space-small/2; 
+
+    > span {
+        cursor: pointer;
+        font-size: torem(32px);
+        line-height: $slide-height-comment;
+        padding-right: 5px; 
+    }
+}

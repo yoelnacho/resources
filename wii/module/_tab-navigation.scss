@@ -1,0 +1,37 @@
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+ %submenu-hover-active {
+    background-color: $color-primary;
+ }
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+// tabindex
+.m-feedback-tab-options.tabindex,
+a.tabindex,
+button.tabindex {
+	box-shadow: inset 0px 0px 0px 2px $color-blue;
+}
+
+.m-feedback-tab-options {
+	outline: none;
+}
+
+video.tabindex {
+	border: 2px solid $color-secondary;
+}
+
+// Partial signin/signup
+
+.input-content--radio {
+	input[type="radio"] {
+		&:focus {
+			box-shadow: 0 0 0 2px $color-secondary;
+			border-radius: 0;
+		}
+	}
+}

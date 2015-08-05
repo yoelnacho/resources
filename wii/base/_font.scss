@@ -1,0 +1,35 @@
+/*
+This CSS resource incorporates links to font software which is the valuable copyrighted
+property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install,
+redistribute, convert, modify or reverse engineer this font software. Please contact Monotype
+Imaging with any questions regarding Web Fonts:  http://www.fonts.com
+*/
+
+// @import url("http://fast.fonts.net/lt/1.css?apiType=css&c=70e43dd7-170a-439b-8a9a-4629828be860&fontids=694015");
+
+@font-face{
+font-family:"HelveticaNeueW02-UltLt";
+    src:url("https://resources.wiibii.com/dev/fonts/674399/787ee748-9cce-45a0-910b-6b5c6e87e327.eot?#iefix");
+    src:url("https://resources.wiibii.com/dev/fonts/674399/787ee748-9cce-45a0-910b-6b5c6e87e327.eot?#iefix") format("eot"),
+    url("https://resources.wiibii.com/dev/fonts/674399/84558c76-9f1b-44d2-ac62-d7937f43809b.woff") format("woff"),
+    url("https://resources.wiibii.com/dev/fonts/674399/411a88fe-e483-4fb8-af42-8369ebb1138d.ttf") format("truetype"),
+    url("https://resources.wiibii.com/dev/fonts/674399/6dfe33a4-0ad5-4c85-8e01-f48ecfe3c167.svg#6dfe33a4-0ad5-4c85-8e01-f48ecfe3c167") format("svg");
+}
+
+@font-face{
+font-family:"HelveticaNeueW02-Thin";
+    src:url("https://resources.wiibii.com/dev/fonts/674411/30b6ffc3-3b64-40dd-9ff8-a3a850daf535.eot?#iefix");
+    src:url("https://resources.wiibii.com/dev/fonts/674411/30b6ffc3-3b64-40dd-9ff8-a3a850daf535.eot?#iefix") format("eot"),
+    url("https://resources.wiibii.com/dev/fonts/674411/775a65da-14aa-4634-be95-6724c05fd522.woff") format("woff"),
+    url("https://resources.wiibii.com/dev/fonts/674411/988eaaa7-5565-4f65-bb17-146b650ce9e9.ttf") format("truetype"),
+    url("https://resources.wiibii.com/dev/fonts/674411/3503a1a6-91c3-4c42-8e66-2ea7b2b57541.svg#3503a1a6-91c3-4c42-8e66-2ea7b2b57541") format("svg");
+}
+
+@font-face{
+    font-family:"HelveticaNeueW02-45Ligh";
+    src:url("https://resources.wiibii.com/dev/fonts/694015/88fcd49a-13c7-4d0c-86b1-ad1e258bd75d.eot?#iefix");
+    src:url("https://resources.wiibii.com/dev/fonts/694015/88fcd49a-13c7-4d0c-86b1-ad1e258bd75d.eot?#iefix") format("eot"),
+    url("https://resources.wiibii.com/dev/fonts/694015/9a2e4855-380f-477f-950e-d98e8db54eac.woff") format("woff"),
+    url("https://resources.wiibii.com/dev/fonts/694015/fa82d0ee-4fbd-4cc9-bf9f-226ad1fcbae2.ttf") format("truetype"),
+    url("https://resources.wiibii.com/dev/fonts/694015/48d599a6-92b5-4d43-a4ac-8959f6971853.svg#48d599a6-92b5-4d43-a4ac-8959f6971853") format("svg");
+}

@@ -1,0 +1,76 @@
+// *************************************
+//
+//   User menu
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.menu-user {
+    background-color: $color-tertiary;    
+}
+
+.menu-user-nav,
+.menu-user-nav--responsive {
+    @extend %full-width;
+    @extend %text-center;
+    @extend %no-overflow;
+}
+
+.menu-user-nav {
+    &.is--responsive {
+        .menu-user-link {
+            @extend %full-width;
+
+            display: block;
+            font-size: torem(16px);
+        }
+    }
+}
+
+.menu-user-link {
+    @include transition(background, $animation-time, ease);
+    @extend %inline;
+    @extend %text-center;
+
+    background-color: $color-tertiary;
+    color: $color-font-secondary;
+    font-size: torem(13px);
+    line-height: $height-menu;
+    width: $space-small + $space-medium + $space-large;
+
+    &:hover,
+    &:active,
+    &.is--active {
+        background-color: $color-quaternary;
+        text-decoration: none;
+    }
+}
+
+.menu-user-nav--responsive {
+    cursor: pointer;
+
+    .menu-user-link {
+        @extend %full-width;
+
+        font-size: torem(16px);
+
+        > [class*="icon-"] {
+            @extend %text-center;
+            
+            color: $color-quaternary;
+            font-size: torem(32px);
+            line-height: $height-menu;
+            position: absolute;
+            right: 0;
+            width: $height-menu;
+        }
+    }
+}

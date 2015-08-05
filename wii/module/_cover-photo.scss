@@ -1,0 +1,114 @@
+// *************************************
+//
+//   Cover Photo
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$coverPhoto-height-content: $height-large;
+$coverPhoto-bg-avatar: rgba($color-quaternary, 0.5);
+$coverPhoto-border-avatar: 10px;
+$coverPhoto-width-avatar: 180px;
+$coverPhoto-width-avatar-min: 140px;
+$coverPhoto-full-width-avatar-min: $coverPhoto-width-avatar-min + ($coverPhoto-border-avatar *2);
+$coverPhoto-full-width-avatar: $coverPhoto-width-avatar + ($coverPhoto-border-avatar *2);
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-coverPhoto {
+    background-color: $color-primary;
+    position: relative;
+   
+   // Circular image avatar
+   .m-circularImage {
+        bottom: -100px;
+        left: $space-small;
+        position: absolute;
+        width: $coverPhoto-full-width-avatar;
+        z-index: $z-low;
+
+        .m-circularImage-figcaption {
+            background-color: $color-secondary;
+            border-radius: 50%;
+            height: 90%;
+            left: 5%;
+            padding: 0;
+            top: 5%;
+            width: 90%;
+            
+            span {
+                @extend %headline-2;
+
+                color: $color-font-primary;
+                line-height: $coverPhoto-width-avatar;
+            }
+        }
+ 
+        .m-circularImage-img { 
+            @include circular-image($coverPhoto-width-avatar, solid, transparent, $coverPhoto-bg-avatar, $coverPhoto-border-avatar);
+
+            .m-circularImage-img-avatar {
+                display: inline-block;
+            }
+        }
+
+    }
+
+    @include break-point($bp-desktop) {
+        .m-circularImage {
+            bottom: -80px;
+            left: 0;
+            margin: 0 auto;
+            right: 0;
+            width: 100%;
+
+            .m-circularImage-figcaption {
+                height: 100%;
+                left: 0;
+                position: relative;
+                top: 0;
+                width: 100%;
+
+                span {
+                    font-size: torem(24px);
+                    line-height: $coverPhoto-width-avatar-min;
+                }
+            }
+
+            .m-circularImage-img { 
+                @include circular-image($coverPhoto-width-avatar-min, solid, transparent, $coverPhoto-bg-avatar, $coverPhoto-border-avatar);
+            }
+        }
+    }
+}
+
+// Cover photo image
+.m-coverPhoto-img {
+    position: relative;
+
+    > figure {
+        @include aspect-ratio(128, 45);
+        @extend %no-overflow;
+
+        background: $color-secondary;
+        background: -moz-linear-gradient(top,  $color-secondary 0%, $color-quinary 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color-secondary), color-stop(100%,$color-quinary));
+        background: -webkit-linear-gradient(top,  $color-secondary 0%,$color-quinary 100%);
+        background: -o-linear-gradient(top,  $color-secondary 0%,$color-quinary 100%);
+        background: -ms-linear-gradient(top,  $color-secondary 0%,$color-quinary 100%);
+        background: linear-gradient(to bottom,  $color-secondary 0%,$color-quinary 100%);
+
+        @include break-point($bp-desktop) {
+            @include aspect-ratio(4, 3);
+
+            img {
+                height: 100%; // partial line
+            }
+        }
+    }   
+}

@@ -1,0 +1,147 @@
+// *************************************
+//
+//   Dashboard
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-widget {
+    @include column(1/3, $gutter:4);
+
+    background-color: $color-primary;
+    margin-bottom: $space-medium;
+
+    .m-tab2 {
+        border-bottom: 1px solid $color-quinary;
+    }
+
+    h4 {
+        @extend %paragraphs-small;
+
+        font-weight: 400;
+        line-height: $height-submenu;
+        margin: 0;
+    }
+
+    @include break-point($bp-tablet) {
+        @include column(1/1, $gutter: 0);
+    }
+}
+
+.m-widget-head {}
+
+.m-widget-content {
+    @extend %no-overflow;
+    
+    padding: 20px;
+    height: 220px;
+    text-align: center;
+
+    footer {
+        padding: $space-small 0;
+    }
+}
+
+.m-widget-data {
+    @include v-align;
+    @extend %headline-2;
+
+    font-weight: 700;
+    min-height: $space-large*2;
+
+    p {
+        line-height: 1;
+        margin: 0;
+        position: relative;
+
+        > [class*="icon-"] {
+            left: 0;
+            position: absolute;
+            
+            @include break-point($bp-large) {
+                display: block;
+                margin-bottom: $space-small;
+                position: relative;
+            }
+        }
+    }
+}
+
+.m-table .m-widget-data {
+    [class*="icon-"] {
+        margin-top: $space-small;
+    }
+}
+
+
+
+// Replace it
+.m-tab2 {
+    @extend %full-width;
+    @extend %text-center;
+
+    background-color: $color-quaternary;
+    height: $height-submenu;
+    padding: 0;
+    position: relative;
+    z-index: $z-low;
+}
+
+.m-tab2-holder {
+    height: 100%;
+    margin: 0 $space-large;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.m-tab2-nav-arrows {
+    @include transition(background, $animation-time, ease);
+    @extend %text-center;
+
+    background-color: transparent;
+    border: 0;
+    height: $height-submenu;
+    position: absolute;
+    top: 0;
+    width: $height-submenu;
+    z-index: $z-low;
+
+    > span { // icon
+        color: $color-secondary;
+        font-size: torem(32px);
+        height: 42px; // fix ie
+        line-height: normal;
+    }
+
+    &:hover { background-color: $color-quinary;}
+    &.m-tab2-nav-arrows--prev { left: 0;}
+    &.m-tab2-nav-arrows--next { right: 0;}
+}  
+
+// Style
+.m-tab2--secondary {
+    background-color: $color-primary;
+
+    .m-tab2-nav-arrows {
+        &[disabled="disabled"] {
+            
+            span { 
+                color: rgba($color-secondary, .5);
+            }
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        &:hover { background-color: $color-quinary;}
+    }
+}

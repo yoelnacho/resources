@@ -1,0 +1,115 @@
+// *************************************
+//
+//   Main submenu
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+%submenu-hover-active {
+    background-color: $color-primary;
+}
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+// Patial refactor
+.header--user-submenu {
+    @extend %full-width;
+    @extend %text-center;
+
+    background-color: $color-quaternary;
+    height: $height-submenu;
+    z-index: $z-above;
+
+    > nav {
+        height: $height-submenu;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+    }
+
+    .button-slider {
+        font-size: 0; //fix display inline-block;
+        left: 0;
+        min-width: 100%;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: 0;
+        
+        > a {
+            @include transition(background, $animation-time, ease);
+
+            color: $color-font-secondary;
+            font-size: torem(23px);
+            height: $height-submenu;
+            line-height: 2.1;
+            position: relative;
+            vertical-align: top;
+            width: $space-small + $space-medium + $space-large;
+
+            > span {
+                bottom: 10px;
+                font: { 
+                    family: $base-font-family;
+                    size: torem(11px);
+                    weight: 400;
+                }
+                left: 0;
+                line-height: 1;
+                position: absolute;
+                right: 0;
+                text-transform: uppercase;
+            }
+            
+            &:hover,
+            &.is--section-active {
+                @extend %submenu-hover-active;
+            }
+        }
+    }
+
+    .buttons-holder {
+        height: 100%;
+        margin: 0 $space-large;
+        overflow: hidden;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    .header--nav-arrows {
+        @extend %text-center;
+        @include transition(background, $animation-time, ease);
+        
+        background-color: $color-quaternary;
+        border: 0;
+        height: $height-submenu;
+        position: absolute;
+        top: 0;
+        width: $height-submenu;
+        z-index: $z-low;
+
+        > i {
+            color: $color-tertiary;
+            font-size: torem(32px);
+            height: 42px; // fix ie
+            line-height: normal;
+        }
+
+        &:hover {
+            @extend %submenu-hover-active;
+        }
+
+        &.nav-arrows--prev {
+            left: 0;
+        }
+
+        &.nav-arrows--next {
+            right: 0;
+        }
+    }
+}

@@ -1,0 +1,180 @@
+// *************************************
+//
+//   Drag and Drop
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$dragAndDrop-circular-width: 120px;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.m-dragAndDrop {
+    @extend %text-center;
+    @extend %pos--relative;
+
+    border: {
+        color: $color-quaternary;
+        style: dashed;
+        width: 2px;
+    }
+    padding: ($space-small / 2);
+    margin-bottom: $space-large;
+
+    &.is--active {
+       border: {
+            color: $color-quaternary;
+            style: solid;
+            width: 2px;
+        }
+
+        .m-dragAndDrop-message {
+            background-color: $color-quinary;
+        }
+    }
+}
+
+.m-dragAndDrop-edit {
+    @include break-point($bp-desktop) {
+        padding: ($space-small / 2);
+
+        .m-dragAndDrop-content {
+            .m-dragAndDrop-btn-edit {
+                left: auto;
+                bottom: auto;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+}
+
+
+// Content
+.m-dragAndDrop-content {
+    button {
+        @extend %no-overflow;
+    }
+}
+
+// Image
+.m-dragAndDrop-img {
+    @include aspect-ratio(128, 45);
+    @extend %no-overflow;
+
+    > img {
+        @extend %full-width;
+    }
+
+    @include break-point($bp-desktop) {
+        @include aspect-ratio(4, 3);
+    }
+}
+
+// Message
+.m-dragAndDrop-message {
+    padding: 20px;
+
+    p {
+        @extend %no-margin;
+    }
+}
+
+.m-dragAndDrop-title {
+    @extend %headline-5;
+    @extend %no-margin;
+}
+
+// Circular
+.m-dragAndDrop-circular {
+    position: absolute;
+    bottom: -($dragAndDrop-circular-width / 2);
+    left: $space-large + $space-medium;
+    width: $dragAndDrop-circular-width;
+
+    .m-circularImage-img { 
+        @include circular-image($dragAndDrop-circular-width, dashed, $color-quaternary, $color-primary, 2px);
+
+        .m-circularImage-img-avatar {
+            @extend %pos--relative;
+
+            display: inline-block;
+
+            > img {
+                @include border-radius(50%);
+                
+                padding: 10px;
+            }
+        }
+    }
+
+    .m-circularImage-figcaption {
+        @include v-align;
+        
+        bottom: 0;
+        color: $color-font-secondary;
+        height: 100%;
+        padding: 0;
+        top: 0;
+
+        .m-circularImage-figcaption-content {
+            > * {
+                @extend %paragraphs-small;
+
+                color: $color-font-secondary;
+            }
+        }
+
+        button {
+            background-color: transparent;
+            border: 0;
+            padding-top: 10px;
+            text-decoration: underline;
+        }
+    }
+
+    @include break-point($bp-desktop) {
+        left: 50%;
+        margin-left: -60px;
+    }
+}
+
+// BTN Edit
+.m-dragAndDrop-btn-edit {
+    &[data-wii-btn~="secondary"] {
+        background-color: $color-primary;
+    }
+    
+    margin-left: -$space-small;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+}
+
+
+.m-dragAndDrop-photo {
+    margin-bottom: $space-large + $space-small;
+
+    .m-dragAndDrop-message {
+        padding-bottom: 84px;
+        padding-top: 85px;
+
+        @include break-point($bp-desktop) {
+            padding-bottom: $space-large + $space-medium;
+            padding-top: $space-small;
+        }
+    }
+}
+
+
+// Gallery module
+.m-dragAndDrop-gallery {
+    border: 1px solid $color-secondary;
+    padding: $space-small;
+    text-align: center;
+}
